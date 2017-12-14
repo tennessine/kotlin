@@ -562,3 +562,6 @@ fun KtExpression.getLabeledParent(labelName: String): KtLabeledExpression? {
     }
     return null
 }
+
+fun KtModifierList.getVisibilityKeyword() =
+        KtTokens.VISIBILITY_MODIFIERS.types.firstOrNull { hasModifier(it as KtModifierKeywordToken) } as? KtModifierKeywordToken
