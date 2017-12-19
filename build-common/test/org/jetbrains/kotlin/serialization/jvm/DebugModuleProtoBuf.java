@@ -138,6 +138,45 @@ public final class DebugModuleProtoBuf {
      */
     org.jetbrains.kotlin.protobuf.ByteString
         getJvmPackageNameBytes(int index);
+
+    /**
+     * <code>repeated string experimental_annotation_name = 4;</code>
+     *
+     * <pre>
+     * Full names of experimental annotation classes for API introduced in this module.
+     * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+     * </pre>
+     */
+    org.jetbrains.kotlin.protobuf.ProtocolStringList
+        getExperimentalAnnotationNameList();
+    /**
+     * <code>repeated string experimental_annotation_name = 4;</code>
+     *
+     * <pre>
+     * Full names of experimental annotation classes for API introduced in this module.
+     * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+     * </pre>
+     */
+    int getExperimentalAnnotationNameCount();
+    /**
+     * <code>repeated string experimental_annotation_name = 4;</code>
+     *
+     * <pre>
+     * Full names of experimental annotation classes for API introduced in this module.
+     * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+     * </pre>
+     */
+    java.lang.String getExperimentalAnnotationName(int index);
+    /**
+     * <code>repeated string experimental_annotation_name = 4;</code>
+     *
+     * <pre>
+     * Full names of experimental annotation classes for API introduced in this module.
+     * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+     * </pre>
+     */
+    org.jetbrains.kotlin.protobuf.ByteString
+        getExperimentalAnnotationNameBytes(int index);
   }
   /**
    * Protobuf type {@code org.jetbrains.kotlin.serialization.jvm.Module}
@@ -216,6 +255,15 @@ public final class DebugModuleProtoBuf {
               jvmPackageName_.add(bs);
               break;
             }
+            case 34: {
+              org.jetbrains.kotlin.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                experimentalAnnotationName_ = new org.jetbrains.kotlin.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              experimentalAnnotationName_.add(bs);
+              break;
+            }
           }
         }
       } catch (org.jetbrains.kotlin.protobuf.InvalidProtocolBufferException e) {
@@ -232,6 +280,9 @@ public final class DebugModuleProtoBuf {
         }
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           jvmPackageName_ = jvmPackageName_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          experimentalAnnotationName_ = experimentalAnnotationName_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -423,10 +474,60 @@ public final class DebugModuleProtoBuf {
       return jvmPackageName_.getByteString(index);
     }
 
+    public static final int EXPERIMENTAL_ANNOTATION_NAME_FIELD_NUMBER = 4;
+    private org.jetbrains.kotlin.protobuf.LazyStringList experimentalAnnotationName_;
+    /**
+     * <code>repeated string experimental_annotation_name = 4;</code>
+     *
+     * <pre>
+     * Full names of experimental annotation classes for API introduced in this module.
+     * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+     * </pre>
+     */
+    public org.jetbrains.kotlin.protobuf.ProtocolStringList
+        getExperimentalAnnotationNameList() {
+      return experimentalAnnotationName_;
+    }
+    /**
+     * <code>repeated string experimental_annotation_name = 4;</code>
+     *
+     * <pre>
+     * Full names of experimental annotation classes for API introduced in this module.
+     * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+     * </pre>
+     */
+    public int getExperimentalAnnotationNameCount() {
+      return experimentalAnnotationName_.size();
+    }
+    /**
+     * <code>repeated string experimental_annotation_name = 4;</code>
+     *
+     * <pre>
+     * Full names of experimental annotation classes for API introduced in this module.
+     * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+     * </pre>
+     */
+    public java.lang.String getExperimentalAnnotationName(int index) {
+      return experimentalAnnotationName_.get(index);
+    }
+    /**
+     * <code>repeated string experimental_annotation_name = 4;</code>
+     *
+     * <pre>
+     * Full names of experimental annotation classes for API introduced in this module.
+     * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+     * </pre>
+     */
+    public org.jetbrains.kotlin.protobuf.ByteString
+        getExperimentalAnnotationNameBytes(int index) {
+      return experimentalAnnotationName_.getByteString(index);
+    }
+
     private void initFields() {
       packageParts_ = java.util.Collections.emptyList();
       metadataParts_ = java.util.Collections.emptyList();
       jvmPackageName_ = org.jetbrains.kotlin.protobuf.LazyStringArrayList.EMPTY;
+      experimentalAnnotationName_ = org.jetbrains.kotlin.protobuf.LazyStringArrayList.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -462,6 +563,9 @@ public final class DebugModuleProtoBuf {
       for (int i = 0; i < jvmPackageName_.size(); i++) {
         output.writeBytes(3, jvmPackageName_.getByteString(i));
       }
+      for (int i = 0; i < experimentalAnnotationName_.size(); i++) {
+        output.writeBytes(4, experimentalAnnotationName_.getByteString(i));
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -487,6 +591,15 @@ public final class DebugModuleProtoBuf {
         }
         size += dataSize;
         size += 1 * getJvmPackageNameList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < experimentalAnnotationName_.size(); i++) {
+          dataSize += org.jetbrains.kotlin.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(experimentalAnnotationName_.getByteString(i));
+        }
+        size += dataSize;
+        size += 1 * getExperimentalAnnotationNameList().size();
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -621,6 +734,8 @@ public final class DebugModuleProtoBuf {
         }
         jvmPackageName_ = org.jetbrains.kotlin.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
+        experimentalAnnotationName_ = org.jetbrains.kotlin.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -671,6 +786,11 @@ public final class DebugModuleProtoBuf {
           bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.jvmPackageName_ = jvmPackageName_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          experimentalAnnotationName_ = experimentalAnnotationName_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.experimentalAnnotationName_ = experimentalAnnotationName_;
         onBuilt();
         return result;
       }
@@ -745,6 +865,16 @@ public final class DebugModuleProtoBuf {
           } else {
             ensureJvmPackageNameIsMutable();
             jvmPackageName_.addAll(other.jvmPackageName_);
+          }
+          onChanged();
+        }
+        if (!other.experimentalAnnotationName_.isEmpty()) {
+          if (experimentalAnnotationName_.isEmpty()) {
+            experimentalAnnotationName_ = other.experimentalAnnotationName_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureExperimentalAnnotationNameIsMutable();
+            experimentalAnnotationName_.addAll(other.experimentalAnnotationName_);
           }
           onChanged();
         }
@@ -1545,6 +1675,144 @@ public final class DebugModuleProtoBuf {
   }
   ensureJvmPackageNameIsMutable();
         jvmPackageName_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private org.jetbrains.kotlin.protobuf.LazyStringList experimentalAnnotationName_ = org.jetbrains.kotlin.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureExperimentalAnnotationNameIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          experimentalAnnotationName_ = new org.jetbrains.kotlin.protobuf.LazyStringArrayList(experimentalAnnotationName_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <code>repeated string experimental_annotation_name = 4;</code>
+       *
+       * <pre>
+       * Full names of experimental annotation classes for API introduced in this module.
+       * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+       * </pre>
+       */
+      public org.jetbrains.kotlin.protobuf.ProtocolStringList
+          getExperimentalAnnotationNameList() {
+        return experimentalAnnotationName_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string experimental_annotation_name = 4;</code>
+       *
+       * <pre>
+       * Full names of experimental annotation classes for API introduced in this module.
+       * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+       * </pre>
+       */
+      public int getExperimentalAnnotationNameCount() {
+        return experimentalAnnotationName_.size();
+      }
+      /**
+       * <code>repeated string experimental_annotation_name = 4;</code>
+       *
+       * <pre>
+       * Full names of experimental annotation classes for API introduced in this module.
+       * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+       * </pre>
+       */
+      public java.lang.String getExperimentalAnnotationName(int index) {
+        return experimentalAnnotationName_.get(index);
+      }
+      /**
+       * <code>repeated string experimental_annotation_name = 4;</code>
+       *
+       * <pre>
+       * Full names of experimental annotation classes for API introduced in this module.
+       * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+       * </pre>
+       */
+      public org.jetbrains.kotlin.protobuf.ByteString
+          getExperimentalAnnotationNameBytes(int index) {
+        return experimentalAnnotationName_.getByteString(index);
+      }
+      /**
+       * <code>repeated string experimental_annotation_name = 4;</code>
+       *
+       * <pre>
+       * Full names of experimental annotation classes for API introduced in this module.
+       * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+       * </pre>
+       */
+      public Builder setExperimentalAnnotationName(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureExperimentalAnnotationNameIsMutable();
+        experimentalAnnotationName_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string experimental_annotation_name = 4;</code>
+       *
+       * <pre>
+       * Full names of experimental annotation classes for API introduced in this module.
+       * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+       * </pre>
+       */
+      public Builder addExperimentalAnnotationName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureExperimentalAnnotationNameIsMutable();
+        experimentalAnnotationName_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string experimental_annotation_name = 4;</code>
+       *
+       * <pre>
+       * Full names of experimental annotation classes for API introduced in this module.
+       * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+       * </pre>
+       */
+      public Builder addAllExperimentalAnnotationName(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureExperimentalAnnotationNameIsMutable();
+        org.jetbrains.kotlin.protobuf.AbstractMessageLite.Builder.addAll(
+            values, experimentalAnnotationName_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string experimental_annotation_name = 4;</code>
+       *
+       * <pre>
+       * Full names of experimental annotation classes for API introduced in this module.
+       * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+       * </pre>
+       */
+      public Builder clearExperimentalAnnotationName() {
+        experimentalAnnotationName_ = org.jetbrains.kotlin.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string experimental_annotation_name = 4;</code>
+       *
+       * <pre>
+       * Full names of experimental annotation classes for API introduced in this module.
+       * The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+       * </pre>
+       */
+      public Builder addExperimentalAnnotationNameBytes(
+          org.jetbrains.kotlin.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureExperimentalAnnotationNameIsMutable();
+        experimentalAnnotationName_.add(value);
         onChanged();
         return this;
       }
@@ -3381,18 +3649,19 @@ public final class DebugModuleProtoBuf {
     java.lang.String[] descriptorData = {
       "\n/core/descriptors.jvm/src/jvm_module.de" +
       "bug.proto\022&org.jetbrains.kotlin.serializ" +
-      "ation.jvm\"\275\001\n\006Module\022K\n\rpackage_parts\030\001 " +
+      "ation.jvm\"\343\001\n\006Module\022K\n\rpackage_parts\030\001 " +
       "\003(\01324.org.jetbrains.kotlin.serialization" +
       ".jvm.PackageParts\022L\n\016metadata_parts\030\002 \003(" +
       "\01324.org.jetbrains.kotlin.serialization.j" +
       "vm.PackageParts\022\030\n\020jvm_package_name\030\003 \003(" +
-      "\t\"\366\001\n\014PackageParts\022\027\n\017package_fq_name\030\001 " +
-      "\002(\t\022\030\n\020short_class_name\030\002 \003(\t\022*\n\036multifi" +
-      "le_facade_short_name_id\030\003 \003(\005B\002\020\001\022#\n\033mul",
-      "tifile_facade_short_name\030\004 \003(\t\022.\n&class_" +
-      "with_jvm_package_name_short_name\030\005 \003(\t\0222" +
-      "\n&class_with_jvm_package_name_package_id" +
-      "\030\006 \003(\005B\002\020\001B\025B\023DebugModuleProtoBuf"
+      "\t\022$\n\034experimental_annotation_name\030\004 \003(\t\"" +
+      "\366\001\n\014PackageParts\022\027\n\017package_fq_name\030\001 \002(" +
+      "\t\022\030\n\020short_class_name\030\002 \003(\t\022*\n\036multifile",
+      "_facade_short_name_id\030\003 \003(\005B\002\020\001\022#\n\033multi" +
+      "file_facade_short_name\030\004 \003(\t\022.\n&class_wi" +
+      "th_jvm_package_name_short_name\030\005 \003(\t\0222\n&" +
+      "class_with_jvm_package_name_package_id\030\006" +
+      " \003(\005B\002\020\001B\025B\023DebugModuleProtoBuf"
     };
     org.jetbrains.kotlin.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new org.jetbrains.kotlin.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3411,7 +3680,7 @@ public final class DebugModuleProtoBuf {
     internal_static_org_jetbrains_kotlin_serialization_jvm_Module_fieldAccessorTable = new
       org.jetbrains.kotlin.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_jetbrains_kotlin_serialization_jvm_Module_descriptor,
-        new java.lang.String[] { "PackageParts", "MetadataParts", "JvmPackageName", });
+        new java.lang.String[] { "PackageParts", "MetadataParts", "JvmPackageName", "ExperimentalAnnotationName", });
     internal_static_org_jetbrains_kotlin_serialization_jvm_PackageParts_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_org_jetbrains_kotlin_serialization_jvm_PackageParts_fieldAccessorTable = new

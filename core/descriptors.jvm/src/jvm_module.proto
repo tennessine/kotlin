@@ -29,6 +29,10 @@ message Module {
   // Values of @JvmPackageName annotation used in this module; can be referenced in PackageParts#class_with_jvm_package_name_package_id.
   // The names here are dot-separated, e.g. "org.foo.bar"
   repeated string jvm_package_name = 3;
+
+  // Full names of experimental annotation classes for API used in this module.
+  // The package names are separated by slashes and the class names are separated by dots here: "org/foo/bar/OuterClass.ExperimentalAPI"
+  repeated string experimental_annotation_name = 4;
 }
 
 message PackageParts {

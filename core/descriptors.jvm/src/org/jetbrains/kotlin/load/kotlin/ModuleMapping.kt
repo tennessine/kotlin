@@ -16,6 +16,7 @@
 
 package org.jetbrains.kotlin.load.kotlin
 
+import org.jetbrains.kotlin.name.ClassId
 import org.jetbrains.kotlin.name.FqName
 import org.jetbrains.kotlin.name.Name
 import org.jetbrains.kotlin.resolve.jvm.JvmClassName
@@ -27,6 +28,7 @@ import java.io.IOException
 
 class ModuleMapping private constructor(
         val packageFqName2Parts: Map<String, PackageParts>,
+        val experimentalAnnotationNames: List<ClassId>,
         private val debugName: String
 ) {
     fun findPackageParts(packageFqName: String): PackageParts? {
@@ -40,10 +42,10 @@ class ModuleMapping private constructor(
         val MAPPING_FILE_EXT: String = "kotlin_module"
 
         @JvmField
-        val EMPTY: ModuleMapping = ModuleMapping(emptyMap(), "EMPTY")
+        val EMPTY: ModuleMapping = ModuleMapping(emptyMap(), emptyList(), "EMPTY")
 
         @JvmField
-        val CORRUPTED: ModuleMapping = ModuleMapping(emptyMap(), "CORRUPTED")
+        val CORRUPTED: ModuleMapping = ModuleMapping(emptyMap(), emptyList(), "CORRUPTED")
 
         fun create(
                 bytes: ByteArray?,
@@ -96,7 +98,13 @@ class ModuleMapping private constructor(
                     proto.shortClassNameList.forEach(packageParts::addMetadataPart)
                 }
 
-                return ModuleMapping(result, debugName)
+                return ModuleMapping(result, moduleProto.experimentalAnnotationNameList.map { name ->
+                    ClassId(
+                            FqName(name.substringBeforeLast("/", "").replace('/', '.')),
+                            FqName(name.substringAfterLast("/")),
+                            false
+                    )
+                }, debugName)
             }
             else {
                 // TODO: consider reporting "incompatible ABI version" error for package parts
