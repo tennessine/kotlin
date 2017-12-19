@@ -1,4 +1,4 @@
-MODULE_FRAGMENT <built-ins module>
+MODULE_FRAGMENT name:'<built-ins module>'
   EXTERNAL_PACKAGE_FRAGMENT fqName:'kotlin'
     CLASS IR_EXTERNAL_DECLARATION_STUB INTERFACE Function1
       TYPE_PARAMETER <in P1>

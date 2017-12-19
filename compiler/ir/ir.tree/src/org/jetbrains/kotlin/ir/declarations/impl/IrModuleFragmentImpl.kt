@@ -23,15 +23,19 @@ import org.jetbrains.kotlin.ir.declarations.IrModuleFragment
 import org.jetbrains.kotlin.ir.descriptors.IrBuiltIns
 import org.jetbrains.kotlin.ir.visitors.IrElementTransformer
 import org.jetbrains.kotlin.ir.visitors.IrElementVisitor
+import org.jetbrains.kotlin.name.Name
 import kotlin.collections.ArrayList
 
 class IrModuleFragmentImpl(
         override val descriptor: ModuleDescriptor,
         override val irBuiltins: IrBuiltIns
 ) : IrModuleFragment {
+
     constructor(descriptor: ModuleDescriptor, irBuiltins: IrBuiltIns, files: List<IrFile>) : this(descriptor, irBuiltins) {
         this.files.addAll(files)
     }
+
+    override fun getName(): Name = descriptor.name
 
     override val files: MutableList<IrFile> = ArrayList()
 

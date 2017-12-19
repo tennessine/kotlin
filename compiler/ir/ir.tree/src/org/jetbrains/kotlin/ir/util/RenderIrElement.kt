@@ -38,7 +38,7 @@ class RenderIrElementVisitor : IrElementVisitor<String, Nothing?> {
             "? ${declaration::class.java.simpleName} ${declaration.descriptor.ref()}"
 
     override fun visitModuleFragment(declaration: IrModuleFragment, data: Nothing?): String =
-            "MODULE_FRAGMENT ${declaration.descriptor.ref()}"
+            "MODULE_FRAGMENT name:'${declaration.name}'"
 
     override fun visitExternalPackageFragment(declaration: IrExternalPackageFragment, data: Nothing?): String =
             "EXTERNAL_PACKAGE_FRAGMENT fqName:'${declaration.fqName}'"

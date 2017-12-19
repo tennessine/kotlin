@@ -17,12 +17,13 @@
 package org.jetbrains.kotlin.ir.declarations
 
 import org.jetbrains.kotlin.descriptors.ModuleDescriptor
+import org.jetbrains.kotlin.descriptors.Named
 import org.jetbrains.kotlin.ir.IrElement
 import org.jetbrains.kotlin.ir.UNDEFINED_OFFSET
 import org.jetbrains.kotlin.ir.descriptors.IrBuiltIns
 import org.jetbrains.kotlin.ir.visitors.IrElementTransformer
 
-interface IrModuleFragment : IrElement {
+interface IrModuleFragment : IrElement, Named {
     val descriptor: ModuleDescriptor
     val irBuiltins: IrBuiltIns
     val files: MutableList<IrFile>

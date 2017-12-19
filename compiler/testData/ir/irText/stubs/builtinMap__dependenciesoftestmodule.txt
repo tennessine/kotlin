@@ -1,4 +1,4 @@
-MODULE_FRAGMENT <dependencies of test-module>
+MODULE_FRAGMENT name:'<dependencies of test-module>'
   EXTERNAL_PACKAGE_FRAGMENT fqName:'java.util'
     CLASS IR_EXTERNAL_DECLARATION_STUB CLASS LinkedHashMap
       TYPE_PARAMETER <K : kotlin.Any!>
