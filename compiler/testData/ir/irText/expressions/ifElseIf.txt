@@ -1,4 +1,4 @@
-FILE /ifElseIf.kt
+FILE fqName:'<root>' fileName:'/ifElseIf.kt'
   FUN public fun test(i: kotlin.Int): kotlin.Int
     VALUE_PARAMETER value-parameter i: kotlin.Int
     BLOCK_BODY

@@ -1,4 +1,4 @@
-FILE /primaryCtorProperties.kt
+FILE fqName:'<root>' fileName:'/primaryCtorProperties.kt'
   CLASS CLASS C
     $this: VALUE_PARAMETER this@C: C
     CONSTRUCTOR public constructor C(test1: kotlin.Int, test2: kotlin.Int)

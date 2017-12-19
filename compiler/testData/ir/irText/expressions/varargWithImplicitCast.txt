@@ -1,4 +1,4 @@
-FILE /varargWithImplicitCast.kt
+FILE fqName:'<root>' fileName:'/varargWithImplicitCast.kt'
   FUN public fun testScalar(a: kotlin.Any): kotlin.IntArray
     VALUE_PARAMETER value-parameter a: kotlin.Any
     BLOCK_BODY

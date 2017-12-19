@@ -1,4 +1,4 @@
-FILE /references.kt
+FILE fqName:'<root>' fileName:'/references.kt'
   PROPERTY public val ok: kotlin.String = "OK"
     FIELD PROPERTY_BACKING_FIELD public val ok: kotlin.String = "OK"
       EXPRESSION_BODY

@@ -1,4 +1,4 @@
-FILE /primaryConstructor.kt
+FILE fqName:'<root>' fileName:'/primaryConstructor.kt'
   CLASS CLASS Test1
     $this: VALUE_PARAMETER this@Test1: Test1
     CONSTRUCTOR public constructor Test1(x: kotlin.Int, y: kotlin.Int)

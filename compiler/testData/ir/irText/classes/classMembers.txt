@@ -1,4 +1,4 @@
-FILE /classMembers.kt
+FILE fqName:'<root>' fileName:'/classMembers.kt'
   CLASS CLASS C
     $this: VALUE_PARAMETER this@C: C
     CONSTRUCTOR public constructor C(x: kotlin.Int, y: kotlin.Int, z: kotlin.Int = ...)

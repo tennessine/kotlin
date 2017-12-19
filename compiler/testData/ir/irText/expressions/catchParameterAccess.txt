@@ -1,4 +1,4 @@
-FILE /catchParameterAccess.kt
+FILE fqName:'<root>' fileName:'/catchParameterAccess.kt'
   FUN public fun test(f: () -> kotlin.Unit): kotlin.Unit
     VALUE_PARAMETER value-parameter f: () -> kotlin.Unit
     BLOCK_BODY

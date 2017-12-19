@@ -1,4 +1,4 @@
-FILE /stringComparisons.kt
+FILE fqName:'<root>' fileName:'/stringComparisons.kt'
   FUN public fun test1(a: kotlin.String, b: kotlin.String): kotlin.Boolean
     VALUE_PARAMETER value-parameter a: kotlin.String
     VALUE_PARAMETER value-parameter b: kotlin.String

@@ -1,4 +1,4 @@
-FILE /reflectionLiterals.kt
+FILE fqName:'<root>' fileName:'/reflectionLiterals.kt'
   CLASS CLASS A
     $this: VALUE_PARAMETER this@A: A
     CONSTRUCTOR public constructor A()

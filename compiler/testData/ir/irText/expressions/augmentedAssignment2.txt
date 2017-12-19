@@ -1,4 +1,4 @@
-FILE /augmentedAssignment2.kt
+FILE fqName:'<root>' fileName:'/augmentedAssignment2.kt'
   CLASS CLASS A
     $this: VALUE_PARAMETER this@A: A
     CONSTRUCTOR public constructor A()

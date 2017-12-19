@@ -1,4 +1,4 @@
-FILE /localDelegatedProperties.kt
+FILE fqName:'<root>' fileName:'/localDelegatedProperties.kt'
   FUN public fun test1(): kotlin.Unit
     BLOCK_BODY
       LOCAL_DELEGATED_PROPERTY val x: kotlin.Int
@@ -64,3 +64,4 @@ FILE /localDelegatedProperties.kt
           value: CALL 'plus(Int): Int' type=kotlin.Int origin=PLUSEQ
             $this: CALL '<get-x>(): Int' type=kotlin.Int origin=PLUSEQ
             other: CONST Int type=kotlin.Int value='1'
+

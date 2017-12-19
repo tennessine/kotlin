@@ -1,4 +1,4 @@
-FILE /catchParameterInTopLevelProperty.kt
+FILE fqName:'<root>' fileName:'/catchParameterInTopLevelProperty.kt'
   PROPERTY public val test: kotlin.Unit
     FIELD PROPERTY_BACKING_FIELD public val test: kotlin.Unit
       EXPRESSION_BODY
@@ -11,3 +11,4 @@ FILE /catchParameterInTopLevelProperty.kt
       BLOCK_BODY
         RETURN type=kotlin.Nothing from='<get-test>(): Unit'
           GET_FIELD 'test: Unit' type=kotlin.Unit origin=null
+

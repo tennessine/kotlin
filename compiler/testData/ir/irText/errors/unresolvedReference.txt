@@ -1,4 +1,4 @@
-FILE /unresolvedReference.kt
+FILE fqName:'<root>' fileName:'/unresolvedReference.kt'
   PROPERTY public val test1: [ERROR : Type for unresolved]
     FIELD PROPERTY_BACKING_FIELD public val test1: [ERROR : Type for unresolved]
       EXPRESSION_BODY

@@ -1,4 +1,4 @@
-FILE /delegatingConstructorCallToTypeAliasConstructor.kt
+FILE fqName:'<root>' fileName:'/delegatingConstructorCallToTypeAliasConstructor.kt'
   CLASS CLASS Cell
     $this: VALUE_PARAMETER this@Cell: Cell<T>
     TYPE_PARAMETER <T>

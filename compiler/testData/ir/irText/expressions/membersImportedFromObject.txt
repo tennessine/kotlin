@@ -1,4 +1,4 @@
-FILE /membersImportedFromObject.kt
+FILE fqName:'<root>' fileName:'/membersImportedFromObject.kt'
   CLASS OBJECT A
     $this: VALUE_PARAMETER this@A: A
     CONSTRUCTOR private constructor A()

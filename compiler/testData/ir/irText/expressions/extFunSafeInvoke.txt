@@ -1,4 +1,4 @@
-FILE /extFunSafeInvoke.kt
+FILE fqName:'<root>' fileName:'/extFunSafeInvoke.kt'
   FUN public fun test(receiver: kotlin.Any?, fn: kotlin.Any.(kotlin.Int, kotlin.String) -> kotlin.Unit): kotlin.Unit?
     VALUE_PARAMETER value-parameter receiver: kotlin.Any?
     VALUE_PARAMETER value-parameter fn: kotlin.Any.(kotlin.Int, kotlin.String) -> kotlin.Unit
@@ -20,3 +20,4 @@ FILE /extFunSafeInvoke.kt
                 p1: GET_VAR 'tmp0_safe_receiver: Any?' type=kotlin.Any? origin=null
                 p2: CONST Int type=kotlin.Int value='42'
                 p3: CONST String type=kotlin.String value='Hello'
+

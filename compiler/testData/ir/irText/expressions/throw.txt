@@ -1,4 +1,4 @@
-FILE /throw.kt
+FILE fqName:'<root>' fileName:'/throw.kt'
   FUN public fun test1(): kotlin.Unit
     BLOCK_BODY
       THROW type=kotlin.Nothing

@@ -1,4 +1,4 @@
-FILE /fun.kt
+FILE fqName:'<root>' fileName:'/fun.kt'
   FUN public fun <T> test1(i: kotlin.Int, j: T): kotlin.Unit
     TYPE_PARAMETER <T>
     VALUE_PARAMETER value-parameter i: kotlin.Int

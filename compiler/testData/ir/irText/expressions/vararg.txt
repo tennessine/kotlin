@@ -1,4 +1,4 @@
-FILE /vararg.kt
+FILE fqName:'<root>' fileName:'/vararg.kt'
   PROPERTY public val test1: kotlin.Array<kotlin.String>
     FIELD PROPERTY_BACKING_FIELD public val test1: kotlin.Array<kotlin.String>
       EXPRESSION_BODY

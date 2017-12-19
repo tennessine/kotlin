@@ -1,4 +1,4 @@
-FILE /enumEntryAsReceiver.kt
+FILE fqName:'<root>' fileName:'/enumEntryAsReceiver.kt'
   CLASS ENUM_CLASS X
     $this: VALUE_PARAMETER this@X: X
     CONSTRUCTOR private constructor X()

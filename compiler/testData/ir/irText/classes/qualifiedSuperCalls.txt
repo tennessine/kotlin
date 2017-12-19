@@ -1,4 +1,4 @@
-FILE /qualifiedSuperCalls.kt
+FILE fqName:'<root>' fileName:'/qualifiedSuperCalls.kt'
   CLASS INTERFACE ILeft
     $this: VALUE_PARAMETER this@ILeft: ILeft
     FUN public open fun foo(): kotlin.Unit

@@ -1,4 +1,4 @@
-FILE /identity.kt
+FILE fqName:'<root>' fileName:'/identity.kt'
   FUN public fun test1(a: kotlin.Int, b: kotlin.Int): kotlin.Boolean
     VALUE_PARAMETER value-parameter a: kotlin.Int
     VALUE_PARAMETER value-parameter b: kotlin.Int

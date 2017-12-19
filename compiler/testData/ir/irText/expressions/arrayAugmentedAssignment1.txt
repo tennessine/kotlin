@@ -1,4 +1,4 @@
-FILE /arrayAugmentedAssignment1.kt
+FILE fqName:'<root>' fileName:'/arrayAugmentedAssignment1.kt'
   FUN public fun foo(): kotlin.IntArray
     BLOCK_BODY
       RETURN type=kotlin.Nothing from='foo(): IntArray'

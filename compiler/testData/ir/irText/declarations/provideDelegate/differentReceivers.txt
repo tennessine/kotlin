@@ -1,4 +1,4 @@
-FILE /differentReceivers.kt
+FILE fqName:'<root>' fileName:'/differentReceivers.kt'
   CLASS CLASS MyClass
     $this: VALUE_PARAMETER this@MyClass: MyClass
     CONSTRUCTOR public constructor MyClass(value: kotlin.String)

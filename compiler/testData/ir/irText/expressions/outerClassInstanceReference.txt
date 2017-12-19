@@ -1,4 +1,4 @@
-FILE /outerClassInstanceReference.kt
+FILE fqName:'<root>' fileName:'/outerClassInstanceReference.kt'
   CLASS CLASS Outer
     $this: VALUE_PARAMETER this@Outer: Outer
     CONSTRUCTOR public constructor Outer()

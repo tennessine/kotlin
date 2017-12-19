@@ -1,4 +1,4 @@
-FILE /primaryConstructorWithSuperConstructorCall.kt
+FILE fqName:'<root>' fileName:'/primaryConstructorWithSuperConstructorCall.kt'
   CLASS CLASS Base
     $this: VALUE_PARAMETER this@Base: Base
     CONSTRUCTOR public constructor Base()

@@ -1,4 +1,4 @@
-FILE /integerCoercionToT.kt
+FILE fqName:'<root>' fileName:'/integerCoercionToT.kt'
   CLASS INTERFACE CPointed
     $this: VALUE_PARAMETER this@CPointed: CPointed
     FUN FAKE_OVERRIDE public open override fun equals(other: kotlin.Any?): kotlin.Boolean

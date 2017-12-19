@@ -1,4 +1,4 @@
-FILE /javaInnerClass.kt
+FILE fqName:'<root>' fileName:'/javaInnerClass.kt'
   CLASS CLASS Test1
     $this: VALUE_PARAMETER this@Test1: Test1
     CONSTRUCTOR public constructor Test1()
@@ -27,3 +27,4 @@ FILE /javaInnerClass.kt
       $this: VALUE_PARAMETER this@Any: Any
     FUN FAKE_OVERRIDE public open override fun toString(): kotlin.String
       $this: VALUE_PARAMETER this@Any: Any
+

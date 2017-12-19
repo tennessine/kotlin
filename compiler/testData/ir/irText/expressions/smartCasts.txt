@@ -1,4 +1,4 @@
-FILE /smartCasts.kt
+FILE fqName:'<root>' fileName:'/smartCasts.kt'
   FUN public fun expectsString(s: kotlin.String): kotlin.Unit
     VALUE_PARAMETER value-parameter s: kotlin.String
     BLOCK_BODY

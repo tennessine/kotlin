@@ -1,4 +1,4 @@
-FILE /whenCoercedToUnit.kt
+FILE fqName:'<root>' fileName:'/whenCoercedToUnit.kt'
   FUN public fun foo(x: kotlin.Int): kotlin.Unit
     VALUE_PARAMETER value-parameter x: kotlin.Int
     BLOCK_BODY

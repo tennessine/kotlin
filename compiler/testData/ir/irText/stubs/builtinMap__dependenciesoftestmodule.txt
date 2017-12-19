@@ -1,5 +1,5 @@
 MODULE_FRAGMENT <dependencies of test-module>
-  EXTERNAL_PACKAGE_FRAGMENT java.util
+  EXTERNAL_PACKAGE_FRAGMENT fqName:'java.util'
     CLASS IR_EXTERNAL_DECLARATION_STUB CLASS LinkedHashMap
       TYPE_PARAMETER <K : kotlin.Any!>
       TYPE_PARAMETER <V : kotlin.Any!>
@@ -416,7 +416,7 @@ MODULE_FRAGMENT <dependencies of test-module>
         VALUE_PARAMETER value-parameter p0: java.lang.Class<*>!
         VALUE_PARAMETER value-parameter p1: kotlin.Any!
         VALUE_PARAMETER value-parameter p2: kotlin.Any!
-  EXTERNAL_PACKAGE_FRAGMENT kotlin.collections
+  EXTERNAL_PACKAGE_FRAGMENT fqName:'kotlin.collections'
     CLASS IR_EXTERNAL_DECLARATION_STUB INTERFACE Map
       TYPE_PARAMETER <K>
       TYPE_PARAMETER <out V>
@@ -455,12 +455,12 @@ MODULE_FRAGMENT <dependencies of test-module>
         VALUE_PARAMETER value-parameter other: kotlin.Any?
       FUN IR_EXTERNAL_DECLARATION_STUB public open override fun hashCode(): kotlin.Int
       FUN IR_EXTERNAL_DECLARATION_STUB public open override fun toString(): kotlin.String
-  EXTERNAL_PACKAGE_FRAGMENT kotlin.collections
+  EXTERNAL_PACKAGE_FRAGMENT fqName:'kotlin.collections'
     FUN IR_EXTERNAL_DECLARATION_STUB public fun <K, V> mapOf(pair: kotlin.Pair<K, V>): kotlin.collections.Map<K, V>
       TYPE_PARAMETER <K>
       TYPE_PARAMETER <V>
       VALUE_PARAMETER value-parameter pair: kotlin.Pair<K, V>
-  EXTERNAL_PACKAGE_FRAGMENT kotlin
+  EXTERNAL_PACKAGE_FRAGMENT fqName:'kotlin'
     CLASS IR_EXTERNAL_DECLARATION_STUB CLASS Pair
       TYPE_PARAMETER <out A>
       TYPE_PARAMETER <out B>

@@ -1,4 +1,4 @@
-FILE /secondaryConstructors.kt
+FILE fqName:'<root>' fileName:'/secondaryConstructors.kt'
   CLASS CLASS C
     $this: VALUE_PARAMETER this@C: C
     CONSTRUCTOR public constructor C()

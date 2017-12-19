@@ -1,4 +1,4 @@
-FILE /forWithBreakContinue.kt
+FILE fqName:'<root>' fileName:'/forWithBreakContinue.kt'
   FUN public fun testForBreak1(ss: kotlin.collections.List<kotlin.String>): kotlin.Unit
     VALUE_PARAMETER value-parameter ss: kotlin.collections.List<kotlin.String>
     BLOCK_BODY

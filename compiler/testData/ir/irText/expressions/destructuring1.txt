@@ -1,4 +1,4 @@
-FILE /destructuring1.kt
+FILE fqName:'<root>' fileName:'/destructuring1.kt'
   CLASS OBJECT A
     $this: VALUE_PARAMETER this@A: A
     CONSTRUCTOR private constructor A()

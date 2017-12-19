@@ -1,4 +1,4 @@
-FILE /multipleThisReferences.kt
+FILE fqName:'<root>' fileName:'/multipleThisReferences.kt'
   CLASS CLASS Outer
     $this: VALUE_PARAMETER this@Outer: Outer
     CONSTRUCTOR public constructor Outer()

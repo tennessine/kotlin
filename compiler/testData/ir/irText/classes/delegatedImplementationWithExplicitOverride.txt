@@ -1,4 +1,4 @@
-FILE /delegatedImplementationWithExplicitOverride.kt
+FILE fqName:'<root>' fileName:'/delegatedImplementationWithExplicitOverride.kt'
   CLASS INTERFACE IFooBar
     $this: VALUE_PARAMETER this@IFooBar: IFooBar
     FUN public abstract fun foo(): kotlin.Unit

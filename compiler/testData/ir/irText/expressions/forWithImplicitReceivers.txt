@@ -1,4 +1,4 @@
-FILE /forWithImplicitReceivers.kt
+FILE fqName:'<root>' fileName:'/forWithImplicitReceivers.kt'
   CLASS OBJECT FiveTimes
     $this: VALUE_PARAMETER this@FiveTimes: FiveTimes
     CONSTRUCTOR private constructor FiveTimes()

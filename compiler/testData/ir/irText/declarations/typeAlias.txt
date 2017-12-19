@@ -1,4 +1,4 @@
-FILE /typeAlias.kt
+FILE fqName:'<root>' fileName:'/typeAlias.kt'
   TYPEALIAS typealias Test1 = String type=kotlin.String
   FUN public fun foo(): kotlin.Unit
     BLOCK_BODY

@@ -1,4 +1,4 @@
-FILE /when.kt
+FILE fqName:'<root>' fileName:'/when.kt'
   CLASS OBJECT A
     $this: VALUE_PARAMETER this@A: A
     CONSTRUCTOR private constructor A()

@@ -1,4 +1,4 @@
-FILE /literals.kt
+FILE fqName:'<root>' fileName:'/literals.kt'
   PROPERTY public val test1: kotlin.Int = 1
     FIELD PROPERTY_BACKING_FIELD public val test1: kotlin.Int = 1
       EXPRESSION_BODY

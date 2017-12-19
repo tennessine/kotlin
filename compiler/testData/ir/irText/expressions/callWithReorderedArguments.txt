@@ -1,4 +1,4 @@
-FILE /callWithReorderedArguments.kt
+FILE fqName:'<root>' fileName:'/callWithReorderedArguments.kt'
   FUN public fun foo(a: kotlin.Int, b: kotlin.Int): kotlin.Unit
     VALUE_PARAMETER value-parameter a: kotlin.Int
     VALUE_PARAMETER value-parameter b: kotlin.Int

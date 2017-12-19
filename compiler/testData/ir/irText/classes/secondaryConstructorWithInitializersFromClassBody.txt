@@ -1,4 +1,4 @@
-FILE /secondaryConstructorWithInitializersFromClassBody.kt
+FILE fqName:'<root>' fileName:'/secondaryConstructorWithInitializersFromClassBody.kt'
   CLASS CLASS Base
     $this: VALUE_PARAMETER this@Base: Base
     CONSTRUCTOR public constructor Base()

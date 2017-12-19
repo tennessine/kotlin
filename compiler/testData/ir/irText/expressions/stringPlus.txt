@@ -1,4 +1,4 @@
-FILE /stringPlus.kt
+FILE fqName:'<root>' fileName:'/stringPlus.kt'
   FUN public fun test1(a: kotlin.String, b: kotlin.Any): kotlin.String
     VALUE_PARAMETER value-parameter a: kotlin.String
     VALUE_PARAMETER value-parameter b: kotlin.Any

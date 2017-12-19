@@ -1,4 +1,4 @@
-FILE /initBlock.kt
+FILE fqName:'<root>' fileName:'/initBlock.kt'
   CLASS CLASS Test1
     $this: VALUE_PARAMETER this@Test1: Test1
     CONSTRUCTOR public constructor Test1()

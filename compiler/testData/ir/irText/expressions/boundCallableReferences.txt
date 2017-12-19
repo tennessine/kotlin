@@ -1,4 +1,4 @@
-FILE /boundCallableReferences.kt
+FILE fqName:'<root>' fileName:'/boundCallableReferences.kt'
   CLASS CLASS A
     $this: VALUE_PARAMETER this@A: A
     CONSTRUCTOR public constructor A()

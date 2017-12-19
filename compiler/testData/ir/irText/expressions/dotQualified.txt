@@ -1,4 +1,4 @@
-FILE /dotQualified.kt
+FILE fqName:'<root>' fileName:'/dotQualified.kt'
   FUN public fun length(s: kotlin.String): kotlin.Int
     VALUE_PARAMETER value-parameter s: kotlin.String
     BLOCK_BODY

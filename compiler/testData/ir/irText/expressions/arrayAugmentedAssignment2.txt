@@ -1,4 +1,4 @@
-FILE /arrayAugmentedAssignment2.kt
+FILE fqName:'<root>' fileName:'/arrayAugmentedAssignment2.kt'
   CLASS INTERFACE IA
     $this: VALUE_PARAMETER this@IA: IA
     FUN public abstract operator fun get(index: kotlin.String): kotlin.Int

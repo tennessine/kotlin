@@ -1,4 +1,4 @@
-FILE /whenReturn.kt
+FILE fqName:'<root>' fileName:'/whenReturn.kt'
   FUN public fun toString(grade: kotlin.String): kotlin.String
     VALUE_PARAMETER value-parameter grade: kotlin.String
     BLOCK_BODY

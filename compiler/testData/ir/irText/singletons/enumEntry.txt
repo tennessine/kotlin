@@ -1,4 +1,4 @@
-FILE /enumEntry.kt
+FILE fqName:'<root>' fileName:'/enumEntry.kt'
   CLASS ENUM_CLASS Z
     $this: VALUE_PARAMETER this@Z: Z
     CONSTRUCTOR private constructor Z()

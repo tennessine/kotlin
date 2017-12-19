@@ -1,4 +1,4 @@
-FILE /assignments.kt
+FILE fqName:'<root>' fileName:'/assignments.kt'
   CLASS CLASS Ref
     $this: VALUE_PARAMETER this@Ref: Ref
     CONSTRUCTOR public constructor Ref(x: kotlin.Int)

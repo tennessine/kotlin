@@ -1,4 +1,4 @@
-FILE /badBreakContinue.kt
+FILE fqName:'<root>' fileName:'/badBreakContinue.kt'
   FUN public fun test1(): kotlin.Unit
     BLOCK_BODY
       ERROR_EXPR 'Loop not found for break expression: break' type=kotlin.Nothing

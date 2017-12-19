@@ -1,4 +1,4 @@
-FILE /javaEnum.kt
+FILE fqName:'<root>' fileName:'/javaEnum.kt'
   PROPERTY public val test: JEnum
     FIELD PROPERTY_BACKING_FIELD public val test: JEnum
       EXPRESSION_BODY
@@ -7,3 +7,4 @@ FILE /javaEnum.kt
       BLOCK_BODY
         RETURN type=kotlin.Nothing from='<get-test>(): JEnum'
           GET_FIELD 'test: JEnum' type=JEnum origin=null
+

@@ -1,4 +1,4 @@
-FILE /safeCallWithIncrementDecrement.kt
+FILE fqName:'test' fileName:'/safeCallWithIncrementDecrement.kt'
   CLASS CLASS C
     $this: VALUE_PARAMETER this@C: C
     CONSTRUCTOR public constructor C()

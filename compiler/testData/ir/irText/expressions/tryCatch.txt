@@ -1,4 +1,4 @@
-FILE /tryCatch.kt
+FILE fqName:'<root>' fileName:'/tryCatch.kt'
   FUN public fun test1(): kotlin.Unit
     BLOCK_BODY
       TRY type=kotlin.Unit

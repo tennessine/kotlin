@@ -1,4 +1,4 @@
-FILE /argumentMappedWithError.kt
+FILE fqName:'<root>' fileName:'/argumentMappedWithError.kt'
   FUN public fun <R : kotlin.Number> kotlin.Number.convert(): R
     TYPE_PARAMETER <R : kotlin.Number>
     $receiver: VALUE_PARAMETER this@convert: Number
@@ -17,3 +17,4 @@ FILE /argumentMappedWithError.kt
         arg: CALL 'convert() on Number: Number' type=kotlin.Number origin=null
           <R : Number>: Number
           $receiver: GET_VAR 'x: Int' type=kotlin.Int origin=null
+

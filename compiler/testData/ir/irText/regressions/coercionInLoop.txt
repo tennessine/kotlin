@@ -1,4 +1,4 @@
-FILE /coercionInLoop.kt
+FILE fqName:'<root>' fileName:'/coercionInLoop.kt'
   FUN public fun box(): kotlin.String
     BLOCK_BODY
       VAR val a: kotlin.DoubleArray

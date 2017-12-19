@@ -1,4 +1,4 @@
-FILE /smartCastsWithDestructuring.kt
+FILE fqName:'<root>' fileName:'/smartCastsWithDestructuring.kt'
   CLASS INTERFACE I1
     $this: VALUE_PARAMETER this@I1: I1
     FUN FAKE_OVERRIDE public open override fun equals(other: kotlin.Any?): kotlin.Boolean

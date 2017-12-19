@@ -1,4 +1,4 @@
-FILE /callableRefToGenericMember.kt
+FILE fqName:'<root>' fileName:'/callableRefToGenericMember.kt'
   CLASS CLASS A
     $this: VALUE_PARAMETER this@A: A<T>
     TYPE_PARAMETER <T>
@@ -42,3 +42,4 @@ FILE /callableRefToGenericMember.kt
       BLOCK_BODY
         RETURN type=kotlin.Nothing from='<get-test2>(): KProperty1<A<String>, Int>'
           GET_FIELD 'test2: KProperty1<A<String>, Int>' type=kotlin.reflect.KProperty1<A<kotlin.String>, kotlin.Int> origin=null
+

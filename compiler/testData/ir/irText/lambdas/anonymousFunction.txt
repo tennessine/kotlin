@@ -1,4 +1,4 @@
-FILE /anonymousFunction.kt
+FILE fqName:'<root>' fileName:'/anonymousFunction.kt'
   PROPERTY public val anonymous: () -> kotlin.Unit
     FIELD PROPERTY_BACKING_FIELD public val anonymous: () -> kotlin.Unit
       EXPRESSION_BODY

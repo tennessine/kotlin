@@ -1,4 +1,4 @@
-FILE /sealedClasses.kt
+FILE fqName:'<root>' fileName:'/sealedClasses.kt'
   CLASS CLASS Expr
     $this: VALUE_PARAMETER this@Expr: Expr
     CONSTRUCTOR private constructor Expr()

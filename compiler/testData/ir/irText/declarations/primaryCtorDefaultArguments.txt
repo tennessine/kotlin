@@ -1,4 +1,4 @@
-FILE /primaryCtorDefaultArguments.kt
+FILE fqName:'<root>' fileName:'/primaryCtorDefaultArguments.kt'
   CLASS CLASS Test
     $this: VALUE_PARAMETER this@Test: Test
     CONSTRUCTOR public constructor Test(x: kotlin.Int = ...)

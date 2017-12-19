@@ -1,4 +1,4 @@
-FILE /whenElse.kt
+FILE fqName:'<root>' fileName:'/whenElse.kt'
   FUN public fun test(): kotlin.Int
     BLOCK_BODY
       RETURN type=kotlin.Nothing from='test(): Int'

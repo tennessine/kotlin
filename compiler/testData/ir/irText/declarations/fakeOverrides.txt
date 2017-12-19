@@ -1,4 +1,4 @@
-FILE /fakeOverrides.kt
+FILE fqName:'<root>' fileName:'/fakeOverrides.kt'
   CLASS INTERFACE IFooStr
     $this: VALUE_PARAMETER this@IFooStr: IFooStr
     FUN public abstract fun foo(x: kotlin.String): kotlin.Unit

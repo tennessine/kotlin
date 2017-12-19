@@ -1,4 +1,4 @@
-FILE /extensionLambda.kt
+FILE fqName:'<root>' fileName:'/extensionLambda.kt'
   FUN public fun test1(): kotlin.Int
     BLOCK_BODY
       RETURN type=kotlin.Nothing from='test1(): Int'

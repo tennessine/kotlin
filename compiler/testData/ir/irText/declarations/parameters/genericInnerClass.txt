@@ -1,4 +1,4 @@
-FILE /genericInnerClass.kt
+FILE fqName:'<root>' fileName:'/genericInnerClass.kt'
   CLASS CLASS Outer
     $this: VALUE_PARAMETER this@Outer: Outer<T1>
     TYPE_PARAMETER <T1>

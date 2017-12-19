@@ -1,4 +1,4 @@
-FILE /builtinMap.kt
+FILE fqName:'<root>' fileName:'/builtinMap.kt'
   FUN public fun <K, V> kotlin.collections.Map<out K, V>.plus(pair: kotlin.Pair<K, V>): kotlin.collections.Map<K, V>
     TYPE_PARAMETER <K>
     TYPE_PARAMETER <V>
@@ -35,3 +35,4 @@ FILE /builtinMap.kt
                           value: CALL '<get-second>(): V' type=V origin=GET_PROPERTY
                             $this: GET_VAR 'value-parameter pair: Pair<K, V>' type=kotlin.Pair<K, V> origin=null
                 FUNCTION_REFERENCE '<anonymous>() on LinkedHashMap<K!, V!> /* = LinkedHashMap<K!, V!> */: Unit' type=kotlin.collections.LinkedHashMap<K!, V!> /* = java.util.LinkedHashMap<K!, V!> */.() -> kotlin.Unit origin=LAMBDA
+

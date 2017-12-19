@@ -1,4 +1,4 @@
-FILE /destructuringWithUnderscore.kt
+FILE fqName:'<root>' fileName:'/destructuringWithUnderscore.kt'
   CLASS OBJECT A
     $this: VALUE_PARAMETER this@A: A
     CONSTRUCTOR private constructor A()

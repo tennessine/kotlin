@@ -1,4 +1,4 @@
-FILE /objectClassReference.kt
+FILE fqName:'<root>' fileName:'/objectClassReference.kt'
   CLASS OBJECT A
     $this: VALUE_PARAMETER this@A: A
     CONSTRUCTOR private constructor A()

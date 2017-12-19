@@ -1,4 +1,4 @@
-FILE /primitiveComparisons.kt
+FILE fqName:'<root>' fileName:'/primitiveComparisons.kt'
   FUN public fun btest1(a: kotlin.Byte, b: kotlin.Byte): kotlin.Boolean
     VALUE_PARAMETER value-parameter a: kotlin.Byte
     VALUE_PARAMETER value-parameter b: kotlin.Byte

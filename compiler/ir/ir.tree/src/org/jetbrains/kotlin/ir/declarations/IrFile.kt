@@ -24,10 +24,13 @@ import org.jetbrains.kotlin.ir.symbols.IrExternalPackageFragmentSymbol
 import org.jetbrains.kotlin.ir.symbols.IrFileSymbol
 import org.jetbrains.kotlin.ir.symbols.IrPackageFragmentSymbol
 import org.jetbrains.kotlin.ir.visitors.IrElementTransformer
+import org.jetbrains.kotlin.name.FqName
 
 interface IrPackageFragment : IrElement, IrDeclarationContainer, IrSymbolOwner {
     val packageFragmentDescriptor: PackageFragmentDescriptor
     override val symbol: IrPackageFragmentSymbol
+
+    val fqName: FqName
 }
 
 interface IrExternalPackageFragment : IrPackageFragment {

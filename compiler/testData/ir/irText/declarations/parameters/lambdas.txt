@@ -1,4 +1,4 @@
-FILE /lambdas.kt
+FILE fqName:'<root>' fileName:'/lambdas.kt'
   PROPERTY public val test1: (kotlin.String) -> kotlin.String
     FIELD PROPERTY_BACKING_FIELD public val test1: (kotlin.String) -> kotlin.String
       EXPRESSION_BODY

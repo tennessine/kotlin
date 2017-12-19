@@ -1,4 +1,4 @@
-FILE /Derived.kt
+FILE fqName:'<root>' fileName:'/Derived.kt'
   CLASS CLASS Derived
     $this: VALUE_PARAMETER this@Derived: Derived
     CONSTRUCTOR public constructor Derived()

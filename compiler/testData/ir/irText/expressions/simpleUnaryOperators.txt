@@ -1,4 +1,4 @@
-FILE /simpleUnaryOperators.kt
+FILE fqName:'<root>' fileName:'/simpleUnaryOperators.kt'
   FUN public fun test1(x: kotlin.Int): kotlin.Int
     VALUE_PARAMETER value-parameter x: kotlin.Int
     BLOCK_BODY

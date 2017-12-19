@@ -1,4 +1,4 @@
-FILE /destructuringInLambda.kt
+FILE fqName:'<root>' fileName:'/destructuringInLambda.kt'
   CLASS CLASS A
     $this: VALUE_PARAMETER this@A: A
     CONSTRUCTOR public constructor A(x: kotlin.Int, y: kotlin.Int)

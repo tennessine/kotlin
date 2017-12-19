@@ -1,4 +1,4 @@
-FILE /breakContinue.kt
+FILE fqName:'<root>' fileName:'/breakContinue.kt'
   FUN public fun test1(): kotlin.Unit
     BLOCK_BODY
       WHILE label=null origin=WHILE_LOOP

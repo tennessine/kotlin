@@ -1,4 +1,4 @@
-FILE /primitivesImplicitConversions.kt
+FILE fqName:'<root>' fileName:'/primitivesImplicitConversions.kt'
   PROPERTY public val test1: kotlin.Long = 42.toLong()
     FIELD PROPERTY_BACKING_FIELD public val test1: kotlin.Long = 42.toLong()
       EXPRESSION_BODY

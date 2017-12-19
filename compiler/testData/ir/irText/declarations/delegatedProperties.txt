@@ -1,4 +1,4 @@
-FILE /delegatedProperties.kt
+FILE fqName:'<root>' fileName:'/delegatedProperties.kt'
   PROPERTY public val test1: kotlin.Int
     FIELD DELEGATE val `test1$delegate`: kotlin.Lazy<kotlin.Int>
       EXPRESSION_BODY

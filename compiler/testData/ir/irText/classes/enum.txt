@@ -1,4 +1,4 @@
-FILE /enum.kt
+FILE fqName:'<root>' fileName:'/enum.kt'
   CLASS ENUM_CLASS TestEnum1
     $this: VALUE_PARAMETER this@TestEnum1: TestEnum1
     CONSTRUCTOR private constructor TestEnum1()

@@ -1,4 +1,4 @@
-FILE /elvis.kt
+FILE fqName:'<root>' fileName:'/elvis.kt'
   PROPERTY public val p: kotlin.Any? = null
     FIELD PROPERTY_BACKING_FIELD public val p: kotlin.Any? = null
       EXPRESSION_BODY

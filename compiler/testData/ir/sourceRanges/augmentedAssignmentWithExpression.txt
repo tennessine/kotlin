@@ -1,4 +1,4 @@
-@0:0..23:0 FILE /augmentedAssignmentWithExpression.kt
+@0:0..23:0 FILE fqName:'test' fileName:'/augmentedAssignmentWithExpression.kt'
   @2:0..8:1 CLASS CLASS Host
     @2:0..8:1 VALUE_PARAMETER this@Host: Host
     @2:0..8:1 CONSTRUCTOR public constructor Host()

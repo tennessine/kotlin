@@ -1,4 +1,4 @@
-FILE /local.kt
+FILE fqName:'<root>' fileName:'/local.kt'
   CLASS CLASS Delegate
     $this: VALUE_PARAMETER this@Delegate: Delegate
     CONSTRUCTOR public constructor Delegate(value: kotlin.String)

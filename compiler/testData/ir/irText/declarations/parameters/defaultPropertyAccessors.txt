@@ -1,4 +1,4 @@
-FILE /defaultPropertyAccessors.kt
+FILE fqName:'<root>' fileName:'/defaultPropertyAccessors.kt'
   PROPERTY public val test1: kotlin.Int = 42
     FIELD PROPERTY_BACKING_FIELD public val test1: kotlin.Int = 42
       EXPRESSION_BODY

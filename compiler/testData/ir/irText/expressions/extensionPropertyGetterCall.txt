@@ -1,4 +1,4 @@
-FILE /extensionPropertyGetterCall.kt
+FILE fqName:'<root>' fileName:'/extensionPropertyGetterCall.kt'
   PROPERTY public val kotlin.String.okext: kotlin.String
     FUN public fun kotlin.String.<get-okext>(): kotlin.String
       $receiver: VALUE_PARAMETER this@okext: String

@@ -1,4 +1,4 @@
-FILE /delegatedImplementation.kt
+FILE fqName:'<root>' fileName:'/delegatedImplementation.kt'
   CLASS INTERFACE IBase
     $this: VALUE_PARAMETER this@IBase: IBase
     FUN public abstract fun foo(x: kotlin.Int, s: kotlin.String): kotlin.Unit

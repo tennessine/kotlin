@@ -1,4 +1,4 @@
-FILE /calls.kt
+FILE fqName:'<root>' fileName:'/calls.kt'
   FUN public fun foo(x: kotlin.Int, y: kotlin.Int): kotlin.Int
     VALUE_PARAMETER value-parameter x: kotlin.Int
     VALUE_PARAMETER value-parameter y: kotlin.Int

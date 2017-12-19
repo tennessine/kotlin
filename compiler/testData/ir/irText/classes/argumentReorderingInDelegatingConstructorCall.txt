@@ -1,4 +1,4 @@
-FILE /argumentReorderingInDelegatingConstructorCall.kt
+FILE fqName:'<root>' fileName:'/argumentReorderingInDelegatingConstructorCall.kt'
   CLASS CLASS Base
     $this: VALUE_PARAMETER this@Base: Base
     CONSTRUCTOR public constructor Base(x: kotlin.Int, y: kotlin.Int)

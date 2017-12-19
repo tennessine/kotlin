@@ -1,4 +1,4 @@
-FILE /typeOperators.kt
+FILE fqName:'<root>' fileName:'/typeOperators.kt'
   CLASS INTERFACE IThing
     $this: VALUE_PARAMETER this@IThing: IThing
     FUN FAKE_OVERRIDE public open override fun equals(other: kotlin.Any?): kotlin.Boolean

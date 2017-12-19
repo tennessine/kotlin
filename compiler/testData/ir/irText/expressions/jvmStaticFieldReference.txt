@@ -1,4 +1,4 @@
-FILE /jvmStaticFieldReference.kt
+FILE fqName:'<root>' fileName:'/jvmStaticFieldReference.kt'
   FUN public fun testFun(): kotlin.Unit
     BLOCK_BODY
       CALL 'println(String!): Unit' type=kotlin.Unit origin=null

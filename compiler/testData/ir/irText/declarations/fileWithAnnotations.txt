@@ -1,4 +1,4 @@
-FILE /fileWithAnnotations.kt
+FILE fqName:'<root>' fileName:'/fileWithAnnotations.kt'
   fileAnnotations:
     @kotlin.jvm.JvmName(name = "FileWithAnnotations")
   FUN public fun foo(): kotlin.Unit

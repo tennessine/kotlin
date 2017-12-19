@@ -16,7 +16,6 @@
 
 package org.jetbrains.kotlin.ir.util
 
-import org.jetbrains.kotlin.descriptors.ClassDescriptor
 import org.jetbrains.kotlin.descriptors.DeclarationDescriptor
 import org.jetbrains.kotlin.descriptors.ReceiverParameterDescriptor
 import org.jetbrains.kotlin.ir.IrElement
@@ -42,10 +41,10 @@ class RenderIrElementVisitor : IrElementVisitor<String, Nothing?> {
             "MODULE_FRAGMENT ${declaration.descriptor.ref()}"
 
     override fun visitExternalPackageFragment(declaration: IrExternalPackageFragment, data: Nothing?): String =
-            "EXTERNAL_PACKAGE_FRAGMENT ${declaration.packageFragmentDescriptor.fqName}"
+            "EXTERNAL_PACKAGE_FRAGMENT fqName:'${declaration.fqName}'"
 
     override fun visitFile(declaration: IrFile, data: Nothing?): String =
-            "FILE ${declaration.name}"
+            "FILE fqName:'${declaration.fqName}' fileName:'${declaration.name}'"
 
     override fun visitFunction(declaration: IrFunction, data: Nothing?): String =
             "FUN ${declaration.renderOrigin()}${declaration.renderDeclared()}"

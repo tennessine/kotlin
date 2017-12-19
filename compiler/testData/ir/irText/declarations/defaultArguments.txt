@@ -1,4 +1,4 @@
-FILE /defaultArguments.kt
+FILE fqName:'<root>' fileName:'/defaultArguments.kt'
   FUN public fun test1(x: kotlin.Int, y: kotlin.Int = ..., z: kotlin.String = ...): kotlin.Unit
     VALUE_PARAMETER value-parameter x: kotlin.Int
     VALUE_PARAMETER value-parameter y: kotlin.Int = ...

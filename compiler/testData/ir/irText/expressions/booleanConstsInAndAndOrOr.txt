@@ -1,4 +1,4 @@
-FILE /booleanConstsInAndAndOrOr.kt
+FILE fqName:'<root>' fileName:'/booleanConstsInAndAndOrOr.kt'
   FUN public fun test1(b: kotlin.Boolean): kotlin.Unit
     VALUE_PARAMETER value-parameter b: kotlin.Boolean
     BLOCK_BODY

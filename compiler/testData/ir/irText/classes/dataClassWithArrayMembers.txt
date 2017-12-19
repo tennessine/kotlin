@@ -1,4 +1,4 @@
-FILE /dataClassWithArrayMembers.kt
+FILE fqName:'<root>' fileName:'/dataClassWithArrayMembers.kt'
   CLASS CLASS Test1
     $this: VALUE_PARAMETER this@Test1: Test1
     CONSTRUCTOR public constructor Test1(stringArray: kotlin.Array<kotlin.String>, charArray: kotlin.CharArray, booleanArray: kotlin.BooleanArray, byteArray: kotlin.ByteArray, shortArray: kotlin.ShortArray, intArray: kotlin.IntArray, longArray: kotlin.LongArray, floatArray: kotlin.FloatArray, doubleArray: kotlin.DoubleArray)
@@ -633,3 +633,4 @@ FILE /dataClassWithArrayMembers.kt
               CONST Boolean type=kotlin.Boolean value='false'
         RETURN type=kotlin.Nothing from='equals(Any?): Boolean'
           CONST Boolean type=kotlin.Boolean value='true'
+

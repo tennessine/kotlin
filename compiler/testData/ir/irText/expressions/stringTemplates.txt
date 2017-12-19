@@ -1,4 +1,4 @@
-FILE /stringTemplates.kt
+FILE fqName:'<root>' fileName:'/stringTemplates.kt'
   FUN public fun foo(): kotlin.String
     BLOCK_BODY
       RETURN type=kotlin.Nothing from='foo(): String'

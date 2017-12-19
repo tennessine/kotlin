@@ -1,4 +1,4 @@
-FILE /kt16904.kt
+FILE fqName:'<root>' fileName:'/kt16904.kt'
   CLASS CLASS A
     $this: VALUE_PARAMETER this@A: A
     CONSTRUCTOR public constructor A()

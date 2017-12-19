@@ -1,4 +1,4 @@
-FILE /callableReferenceToImportedFromObject.kt
+FILE fqName:'test' fileName:'/callableReferenceToImportedFromObject.kt'
   CLASS OBJECT Foo
     $this: VALUE_PARAMETER this@Foo: Foo
     CONSTRUCTOR private constructor Foo()
@@ -63,3 +63,4 @@ FILE /callableReferenceToImportedFromObject.kt
       BLOCK_BODY
         RETURN type=kotlin.Nothing from='<get-test2a>(): KFunction0<String>'
           GET_FIELD 'test2a: KFunction0<String>' type=kotlin.reflect.KFunction0<kotlin.String> origin=null
+

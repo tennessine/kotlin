@@ -1,4 +1,4 @@
-FILE /chainOfSafeCalls.kt
+FILE fqName:'<root>' fileName:'/chainOfSafeCalls.kt'
   CLASS CLASS C
     $this: VALUE_PARAMETER this@C: C
     CONSTRUCTOR public constructor C()

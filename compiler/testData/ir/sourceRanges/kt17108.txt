@@ -1,4 +1,4 @@
-@0:0..26:1 FILE /kt17108.kt
+@0:0..26:1 FILE fqName:'<root>' fileName:'/kt17108.kt'
   @0:0..26:1 CLASS INTERFACE Boolean
     @0:0..26:1 VALUE_PARAMETER this@Boolean: Boolean
     @5:4..8:38 FUN public abstract operator fun not(): Boolean

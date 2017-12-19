@@ -1,4 +1,4 @@
-FILE /memberExtension.kt
+FILE fqName:'<root>' fileName:'/memberExtension.kt'
   CLASS OBJECT Host
     $this: VALUE_PARAMETER this@Host: Host
     CONSTRUCTOR private constructor Host()

@@ -1,4 +1,4 @@
-FILE /companion.kt
+FILE fqName:'<root>' fileName:'/companion.kt'
   CLASS CLASS Z
     $this: VALUE_PARAMETER this@Z: Z
     CONSTRUCTOR public constructor Z()

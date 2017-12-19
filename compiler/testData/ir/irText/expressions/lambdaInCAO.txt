@@ -1,4 +1,4 @@
-FILE /lambdaInCAO.kt
+FILE fqName:'<root>' fileName:'/lambdaInCAO.kt'
   FUN public operator fun kotlin.Any.plusAssign(lambda: () -> kotlin.Unit): kotlin.Unit
     $receiver: VALUE_PARAMETER this@plusAssign: Any
     VALUE_PARAMETER value-parameter lambda: () -> kotlin.Unit
@@ -70,3 +70,4 @@ FILE /lambdaInCAO.kt
             value: CALL 'inc(): Int' type=kotlin.Int origin=POSTFIX_INCR
               $this: GET_VAR 'tmp2: Int' type=kotlin.Int origin=null
           GET_VAR 'tmp2: Int' type=kotlin.Int origin=null
+

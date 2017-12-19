@@ -1,4 +1,4 @@
-FILE /booleanOperators.kt
+FILE fqName:'<root>' fileName:'/booleanOperators.kt'
   FUN public fun test1(a: kotlin.Boolean, b: kotlin.Boolean): kotlin.Boolean
     VALUE_PARAMETER value-parameter a: kotlin.Boolean
     VALUE_PARAMETER value-parameter b: kotlin.Boolean

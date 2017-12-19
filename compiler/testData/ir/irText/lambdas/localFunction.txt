@@ -1,4 +1,4 @@
-FILE /localFunction.kt
+FILE fqName:'<root>' fileName:'/localFunction.kt'
   FUN public fun outer(): kotlin.Unit
     BLOCK_BODY
       VAR var x: kotlin.Int

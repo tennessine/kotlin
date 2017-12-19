@@ -26,15 +26,21 @@ import org.jetbrains.kotlin.ir.symbols.IrFileSymbol
 import org.jetbrains.kotlin.ir.symbols.impl.IrFileSymbolImpl
 import org.jetbrains.kotlin.ir.visitors.IrElementTransformer
 import org.jetbrains.kotlin.ir.visitors.IrElementVisitor
+import org.jetbrains.kotlin.name.FqName
 import org.jetbrains.kotlin.utils.SmartList
 import java.util.*
 
 class IrFileImpl(
         override val fileEntry: SourceManager.FileEntry,
-        override val symbol: IrFileSymbol
+        override val symbol: IrFileSymbol,
+        override val fqName: FqName
 ) : IrElementBase(0, fileEntry.maxOffset), IrFile {
-    constructor(fileEntry: SourceManager.FileEntry, packageFragmentDescriptor: PackageFragmentDescriptor)
-            : this(fileEntry, IrFileSymbolImpl(packageFragmentDescriptor))
+
+    constructor(fileEntry: SourceManager.FileEntry, symbol: IrFileSymbol) :
+            this(fileEntry, symbol, symbol.descriptor.fqName)
+
+    constructor(fileEntry: SourceManager.FileEntry, packageFragmentDescriptor: PackageFragmentDescriptor) :
+            this(fileEntry, IrFileSymbolImpl(packageFragmentDescriptor), packageFragmentDescriptor.fqName)
 
     constructor(
             fileEntry: SourceManager.FileEntry,

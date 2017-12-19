@@ -1,4 +1,4 @@
-FILE /object.kt
+FILE fqName:'<root>' fileName:'/object.kt'
   CLASS OBJECT Z
     $this: VALUE_PARAMETER this@Z: Z
     CONSTRUCTOR private constructor Z()

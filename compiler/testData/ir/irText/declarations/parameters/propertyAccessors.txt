@@ -1,4 +1,4 @@
-FILE /propertyAccessors.kt
+FILE fqName:'<root>' fileName:'/propertyAccessors.kt'
   PROPERTY public val test1: kotlin.Int
     FUN public fun <get-test1>(): kotlin.Int
       BLOCK_BODY

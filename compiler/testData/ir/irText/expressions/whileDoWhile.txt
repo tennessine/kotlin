@@ -1,4 +1,4 @@
-FILE /whileDoWhile.kt
+FILE fqName:'<root>' fileName:'/whileDoWhile.kt'
   FUN public fun test(): kotlin.Unit
     BLOCK_BODY
       VAR var x: kotlin.Int

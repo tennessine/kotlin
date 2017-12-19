@@ -1,4 +1,4 @@
-FILE /arrayAssignment.kt
+FILE fqName:'<root>' fileName:'/arrayAssignment.kt'
   FUN public fun test(): kotlin.Unit
     BLOCK_BODY
       VAR val x: kotlin.IntArray

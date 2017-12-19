@@ -1,4 +1,4 @@
-FILE /complexAugmentedAssignment.kt
+FILE fqName:'<root>' fileName:'/complexAugmentedAssignment.kt'
   CLASS OBJECT X1
     $this: VALUE_PARAMETER this@X1: X1
     CONSTRUCTOR private constructor X1()

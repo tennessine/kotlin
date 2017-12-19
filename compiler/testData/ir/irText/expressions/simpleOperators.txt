@@ -1,4 +1,4 @@
-FILE /simpleOperators.kt
+FILE fqName:'<root>' fileName:'/simpleOperators.kt'
   FUN public fun test1(a: kotlin.Int, b: kotlin.Int): kotlin.Int
     VALUE_PARAMETER value-parameter a: kotlin.Int
     VALUE_PARAMETER value-parameter b: kotlin.Int

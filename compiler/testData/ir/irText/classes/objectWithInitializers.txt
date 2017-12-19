@@ -1,4 +1,4 @@
-FILE /objectWithInitializers.kt
+FILE fqName:'<root>' fileName:'/objectWithInitializers.kt'
   CLASS CLASS Base
     $this: VALUE_PARAMETER this@Base: Base
     CONSTRUCTOR public constructor Base()

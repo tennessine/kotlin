@@ -1,4 +1,4 @@
-FILE /dataClassesGeneric.kt
+FILE fqName:'<root>' fileName:'/dataClassesGeneric.kt'
   CLASS CLASS Test1
     $this: VALUE_PARAMETER this@Test1: Test1<T>
     TYPE_PARAMETER <T>

@@ -1,4 +1,4 @@
-FILE /tryCatchWithImplicitCast.kt
+FILE fqName:'<root>' fileName:'/tryCatchWithImplicitCast.kt'
   FUN public fun testImplicitCast(a: kotlin.Any): kotlin.Unit
     VALUE_PARAMETER value-parameter a: kotlin.Any
     BLOCK_BODY

@@ -1,4 +1,4 @@
-@0:0..4:1 FILE /synthesizedDataClassMembers.kt
+@0:0..4:1 FILE fqName:'<root>' fileName:'/synthesizedDataClassMembers.kt'
   @0:0..4:1 CLASS CLASS C
     @0:0..4:1 VALUE_PARAMETER this@C: C
     @0:0..4:1 CONSTRUCTOR public constructor C(x: kotlin.Int, y: kotlin.String, z: kotlin.Any)

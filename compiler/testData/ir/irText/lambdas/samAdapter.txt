@@ -1,4 +1,4 @@
-FILE /samAdapter.kt
+FILE fqName:'<root>' fileName:'/samAdapter.kt'
   FUN public fun test1(): kotlin.Unit
     BLOCK_BODY
       VAR val hello: java.lang.Runnable

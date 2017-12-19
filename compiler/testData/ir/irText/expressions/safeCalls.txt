@@ -1,4 +1,4 @@
-FILE /safeCalls.kt
+FILE fqName:'<root>' fileName:'/safeCalls.kt'
   CLASS CLASS Ref
     $this: VALUE_PARAMETER this@Ref: Ref
     CONSTRUCTOR public constructor Ref(value: kotlin.Int)

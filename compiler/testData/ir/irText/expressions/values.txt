@@ -1,4 +1,4 @@
-FILE /values.kt
+FILE fqName:'<root>' fileName:'/values.kt'
   CLASS ENUM_CLASS Enum
     $this: VALUE_PARAMETER this@Enum: Enum
     CONSTRUCTOR private constructor Enum()

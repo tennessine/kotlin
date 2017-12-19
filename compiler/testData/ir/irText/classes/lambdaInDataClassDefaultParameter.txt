@@ -1,4 +1,4 @@
-FILE /lambdaInDataClassDefaultParameter.kt
+FILE fqName:'<root>' fileName:'/lambdaInDataClassDefaultParameter.kt'
   CLASS CLASS A
     $this: VALUE_PARAMETER this@A: A
     CONSTRUCTOR public constructor A(runA: A.(kotlin.String) -> kotlin.Unit = ...)
@@ -196,3 +196,4 @@ FILE /lambdaInDataClassDefaultParameter.kt
               CONST Boolean type=kotlin.Boolean value='false'
         RETURN type=kotlin.Nothing from='equals(Any?): Boolean'
           CONST Boolean type=kotlin.Boolean value='true'
+

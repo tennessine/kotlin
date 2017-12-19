@@ -1,4 +1,4 @@
-FILE /dataClassMembers.kt
+FILE fqName:'<root>' fileName:'/dataClassMembers.kt'
   CLASS CLASS Test
     $this: VALUE_PARAMETER this@Test: Test<T>
     TYPE_PARAMETER <T>

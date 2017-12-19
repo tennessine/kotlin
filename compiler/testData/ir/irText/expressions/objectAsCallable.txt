@@ -1,4 +1,4 @@
-FILE /objectAsCallable.kt
+FILE fqName:'<root>' fileName:'/objectAsCallable.kt'
   CLASS OBJECT A
     $this: VALUE_PARAMETER this@A: A
     CONSTRUCTOR private constructor A()
@@ -80,3 +80,4 @@ FILE /objectAsCallable.kt
       BLOCK_BODY
         RETURN type=kotlin.Nothing from='<get-test2>(): Int'
           GET_FIELD 'test2: Int' type=kotlin.Int origin=null
+

@@ -1,4 +1,4 @@
-FILE /class.kt
+FILE fqName:'<root>' fileName:'/class.kt'
   CLASS INTERFACE TestInterface
     $this: VALUE_PARAMETER this@TestInterface: TestInterface<T>
     TYPE_PARAMETER <T>

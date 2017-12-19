@@ -1,4 +1,4 @@
-FILE /superCalls.kt
+FILE fqName:'<root>' fileName:'/superCalls.kt'
   CLASS CLASS Base
     $this: VALUE_PARAMETER this@Base: Base
     CONSTRUCTOR public constructor Base()

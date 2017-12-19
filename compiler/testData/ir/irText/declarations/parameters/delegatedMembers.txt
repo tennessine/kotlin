@@ -1,4 +1,4 @@
-FILE /delegatedMembers.kt
+FILE fqName:'<root>' fileName:'/delegatedMembers.kt'
   CLASS INTERFACE IBase
     $this: VALUE_PARAMETER this@IBase: IBase<T>
     TYPE_PARAMETER <T>

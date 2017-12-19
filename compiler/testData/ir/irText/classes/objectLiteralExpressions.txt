@@ -1,4 +1,4 @@
-FILE /objectLiteralExpressions.kt
+FILE fqName:'<root>' fileName:'/objectLiteralExpressions.kt'
   CLASS INTERFACE IFoo
     $this: VALUE_PARAMETER this@IFoo: IFoo
     FUN public abstract fun foo(): kotlin.Unit

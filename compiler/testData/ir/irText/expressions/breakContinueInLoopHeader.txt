@@ -1,4 +1,4 @@
-FILE /breakContinueInLoopHeader.kt
+FILE fqName:'<root>' fileName:'/breakContinueInLoopHeader.kt'
   FUN public fun test1(c: kotlin.Boolean?): kotlin.Unit
     VALUE_PARAMETER value-parameter c: kotlin.Boolean?
     BLOCK_BODY
@@ -133,3 +133,4 @@ FILE /breakContinueInLoopHeader.kt
                 arg0: GET_VAR 'i: Int' type=kotlin.Int origin=null
                 arg1: CONST Int type=kotlin.Int value='3'
               then: BREAK label=null loop.label=Outer
+

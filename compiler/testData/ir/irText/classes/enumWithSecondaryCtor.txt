@@ -1,4 +1,4 @@
-FILE /enumWithSecondaryCtor.kt
+FILE fqName:'<root>' fileName:'/enumWithSecondaryCtor.kt'
   CLASS ENUM_CLASS Test0
     $this: VALUE_PARAMETER this@Test0: Test0
     CONSTRUCTOR private constructor Test0(x: kotlin.Int)

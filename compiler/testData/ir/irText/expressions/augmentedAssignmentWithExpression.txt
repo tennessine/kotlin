@@ -1,4 +1,4 @@
-FILE /augmentedAssignmentWithExpression.kt
+FILE fqName:'<root>' fileName:'/augmentedAssignmentWithExpression.kt'
   CLASS CLASS Host
     $this: VALUE_PARAMETER this@Host: Host
     CONSTRUCTOR public constructor Host()

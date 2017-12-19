@@ -1,4 +1,4 @@
-FILE /smoke.kt
+FILE fqName:'<root>' fileName:'/smoke.kt'
   FUN public fun testFun(): kotlin.String
     BLOCK_BODY
       RETURN type=kotlin.Nothing from='testFun(): String'

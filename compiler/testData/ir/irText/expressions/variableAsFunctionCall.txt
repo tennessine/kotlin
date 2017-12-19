@@ -1,4 +1,4 @@
-FILE /variableAsFunctionCall.kt
+FILE fqName:'<root>' fileName:'/variableAsFunctionCall.kt'
   FUN public fun kotlin.String.k(): () -> kotlin.String
     $receiver: VALUE_PARAMETER this@k: String
     BLOCK_BODY

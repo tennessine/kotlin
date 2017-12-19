@@ -1,4 +1,4 @@
-FILE /abstractMembers.kt
+FILE fqName:'<root>' fileName:'/abstractMembers.kt'
   CLASS CLASS AbstractClass
     $this: VALUE_PARAMETER this@AbstractClass: AbstractClass
     CONSTRUCTOR public constructor AbstractClass()

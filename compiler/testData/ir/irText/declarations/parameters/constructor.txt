@@ -1,4 +1,4 @@
-FILE /constructor.kt
+FILE fqName:'<root>' fileName:'/constructor.kt'
   CLASS CLASS Test1
     $this: VALUE_PARAMETER this@Test1: Test1<T1, T2>
     TYPE_PARAMETER <T1>

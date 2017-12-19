@@ -1,4 +1,4 @@
-FILE /genericPropertyCall.kt
+FILE fqName:'<root>' fileName:'/genericPropertyCall.kt'
   PROPERTY public val <T> T.id: T
     FUN public fun T.<get-id>(): T
       $receiver: VALUE_PARAMETER this@id: T

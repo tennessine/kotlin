@@ -1,4 +1,4 @@
-FILE /interfaceProperties.kt
+FILE fqName:'<root>' fileName:'/interfaceProperties.kt'
   CLASS INTERFACE C
     $this: VALUE_PARAMETER this@C: C
     PROPERTY public abstract val test1: kotlin.Int

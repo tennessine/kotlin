@@ -1,4 +1,4 @@
-FILE /nonLocalReturn.kt
+FILE fqName:'<root>' fileName:'/nonLocalReturn.kt'
   FUN public fun test0(): kotlin.Unit
     BLOCK_BODY
       CALL 'run(() -> Nothing): Nothing' type=kotlin.Nothing origin=null
@@ -88,3 +88,4 @@ FILE /nonLocalReturn.kt
                 CALL 'print(Int): Unit' type=kotlin.Unit origin=null
                   message: GET_VAR 'value-parameter it: Int' type=kotlin.Int origin=null
           FUNCTION_REFERENCE '<anonymous>(Int): Unit' type=(kotlin.Int) -> kotlin.Unit origin=LAMBDA
+

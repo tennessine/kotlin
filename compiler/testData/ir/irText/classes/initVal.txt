@@ -1,4 +1,4 @@
-FILE /initVal.kt
+FILE fqName:'<root>' fileName:'/initVal.kt'
   CLASS CLASS TestInitValFromParameter
     $this: VALUE_PARAMETER this@TestInitValFromParameter: TestInitValFromParameter
     CONSTRUCTOR public constructor TestInitValFromParameter(x: kotlin.Int)

@@ -1,4 +1,4 @@
-FILE /conventionComparisons.kt
+FILE fqName:'<root>' fileName:'/conventionComparisons.kt'
   CLASS INTERFACE IA
     $this: VALUE_PARAMETER this@IA: IA
     FUN FAKE_OVERRIDE public open override fun equals(other: kotlin.Any?): kotlin.Boolean

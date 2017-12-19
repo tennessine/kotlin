@@ -1,4 +1,4 @@
-FILE /multipleImplicitReceivers.kt
+FILE fqName:'<root>' fileName:'/multipleImplicitReceivers.kt'
   CLASS OBJECT A
     $this: VALUE_PARAMETER this@A: A
     CONSTRUCTOR private constructor A()

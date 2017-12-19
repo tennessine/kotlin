@@ -1,4 +1,4 @@
-FILE /localVarInDoWhile.kt
+FILE fqName:'<root>' fileName:'/localVarInDoWhile.kt'
   FUN public fun foo(): kotlin.Unit
     BLOCK_BODY
       BLOCK type=kotlin.Unit origin=null
@@ -10,3 +10,4 @@ FILE /localVarInDoWhile.kt
             arg0: CALL 'EQEQ(Any?, Any?): Boolean' type=kotlin.Boolean origin=EXCLEQ
               arg0: GET_VAR 'x: Int' type=kotlin.Int origin=null
               arg1: CONST Int type=kotlin.Int value='42'
+
