@@ -4,7 +4,7 @@
 package api
 
 @Experimental(ExperimentalLevel.WARNING, ExperimentalScope.BINARY)
-@Target(AnnotationTarget.FILE)
+<!EXPERIMENTAL_ANNOTATION_WITH_WRONG_TARGET!>@Target(AnnotationTarget.FILE)<!>
 annotation class ExperimentalAPI
 
 // FILE: api2.kt
