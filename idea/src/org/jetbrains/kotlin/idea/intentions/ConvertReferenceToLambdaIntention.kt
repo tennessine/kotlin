@@ -20,6 +20,7 @@ import com.intellij.openapi.editor.Editor
 import org.jetbrains.kotlin.KtNodeTypes
 import org.jetbrains.kotlin.builtins.isExtensionFunctionType
 import org.jetbrains.kotlin.descriptors.CallableMemberDescriptor
+import org.jetbrains.kotlin.descriptors.ClassDescriptor
 import org.jetbrains.kotlin.descriptors.PropertyDescriptor
 import org.jetbrains.kotlin.idea.caches.resolve.analyze
 import org.jetbrains.kotlin.idea.core.KotlinNameSuggester
@@ -29,10 +30,12 @@ import org.jetbrains.kotlin.idea.inspections.IntentionBasedInspection
 import org.jetbrains.kotlin.idea.util.IdeDescriptorRenderers
 import org.jetbrains.kotlin.psi.*
 import org.jetbrains.kotlin.psi.psiUtil.startOffset
+import org.jetbrains.kotlin.resolve.BindingContext
 import org.jetbrains.kotlin.resolve.BindingContext.DOUBLE_COLON_LHS
 import org.jetbrains.kotlin.resolve.BindingContext.REFERENCE_TARGET
 import org.jetbrains.kotlin.resolve.calls.callUtil.getParameterForArgument
 import org.jetbrains.kotlin.resolve.calls.callUtil.getResolvedCall
+import org.jetbrains.kotlin.resolve.descriptorUtil.fqNameSafe
 import org.jetbrains.kotlin.resolve.lazy.BodyResolveMode
 import org.jetbrains.kotlin.types.expressions.DoubleColonLHS
 
@@ -41,7 +44,6 @@ class ConvertReferenceToLambdaInspection : IntentionBasedInspection<KtCallableRe
 class ConvertReferenceToLambdaIntention : SelfTargetingOffsetIndependentIntention<KtCallableReferenceExpression>(
         KtCallableReferenceExpression::class.java, "Convert reference to lambda"
 ) {
-    private val SOURCE_RENDERER = IdeDescriptorRenderers.SOURCE_CODE
 
     override fun applyTo(element: KtCallableReferenceExpression, editor: Editor?) {
         val context = element.analyze(BodyResolveMode.PARTIAL)
@@ -127,5 +129,15 @@ class ConvertReferenceToLambdaIntention : SelfTargetingOffsetIndependentIntentio
         }
     }
 
-    override fun isApplicableTo(element: KtCallableReferenceExpression) = true
+    override fun isApplicableTo(element: KtCallableReferenceExpression): Boolean {
+        val context = element.analyze(BodyResolveMode.PARTIAL)
+        val expectedType = context[BindingContext.EXPECTED_EXPRESSION_TYPE, element] ?: return true
+        val expectedTypeDescriptor = expectedType.constructor.declarationDescriptor as? ClassDescriptor ?: return true
+        val expectedTypeFqName = expectedTypeDescriptor.fqNameSafe.asString()
+        return !expectedTypeFqName.startsWith("kotlin.reflect")
+    }
+
+    companion object {
+        private val SOURCE_RENDERER = IdeDescriptorRenderers.SOURCE_CODE
+    }
 }
