@@ -161,9 +161,9 @@ class CoroutineTransformerMethodVisitor(
                 )
             else
                 FieldInsnNode(
-                    Opcodes.GETFIELD,
-                    COROUTINE_IMPL_ASM_TYPE.internalName,
-                    COROUTINE_LABEL_FIELD_NAME, Type.INT_TYPE.descriptor
+                        Opcodes.GETFIELD,
+                        COROUTINE_IMPL_ASM_TYPE.internalName,
+                        COROUTINE_LABEL_FIELD_NAME, Type.INT_TYPE.descriptor
                 )
 
     private fun createInsnForSettingLabel() =
@@ -394,7 +394,7 @@ class CoroutineTransformerMethodVisitor(
             // k + 2 - exception
             val variablesToSpill =
                     (0 until localsCount)
-                            .filter{ it !in setOf(continuationIndex, dataIndex, exceptionIndex) }
+                            .filter { it !in setOf(continuationIndex, dataIndex, exceptionIndex) }
                             .map { Pair(it, frame.getLocal(it)) }
                             .filter { (index, value) ->
                                 (index == 0 && needDispatchReceiver && isForNamedFunction) ||
@@ -617,10 +617,10 @@ inline fun withInstructionAdapter(block: InstructionAdapter.() -> Unit): InsnLis
 }
 
 private fun Type.normalize() =
-    when (sort) {
-        Type.ARRAY, Type.OBJECT -> AsmTypes.OBJECT_TYPE
-        else -> this
-    }
+        when (sort) {
+            Type.ARRAY, Type.OBJECT -> AsmTypes.OBJECT_TYPE
+            else -> this
+        }
 
 /**
  * Suspension call may consists of several instructions:
@@ -684,23 +684,32 @@ private fun allSuspensionPointsAreTailCalls(
         methodNode: MethodNode,
         suspensionPoints: List<SuspensionPoint>
 ): Boolean {
-    val safelyReachableReturns = findSafelyReachableReturns(methodNode)
+    val allReachableReturns = findReachableReturns(methodNode)
     val sourceFrames = MethodTransformer.analyze(thisName, methodNode, IgnoringCopyOperationSourceInterpreter())
 
     val instructions = methodNode.instructions
-    return suspensionPoints.all { suspensionPoint ->
+    for (suspensionPoint in suspensionPoints) {
         val beginIndex = instructions.indexOf(suspensionPoint.suspensionCallBegin)
         val endIndex = instructions.indexOf(suspensionPoint.suspensionCallEnd)
 
-        safelyReachableReturns[endIndex + 1]?.all { returnIndex ->
+        val endReturns = allReachableReturns[endIndex + 1]
+
+        for (returnIndex in endReturns) {
             val sourceInsn =
                     sourceFrames[returnIndex].top().sure {
                         "There must be some value on stack to return"
-                    }.insns.singleOrNull()
+                    }.insns.singleOrNull() ?: return false
 
-            sourceInsn?.let(instructions::indexOf) in beginIndex..endIndex
-        } ?: false
+            val sourceInsnIndex = instructions.indexOf(sourceInsn)
+            val sourceReturns = allReachableReturns[sourceInsnIndex]
+
+            // In case of try catch we have more reachable returns on source than on end.
+            // In this case, disable tail call optimization.
+            if (sourceReturns.size > endReturns.size) return false
+            if (sourceInsnIndex !in beginIndex..endIndex) return false
+        }
     }
+    return true
 }
 
 internal class IgnoringCopyOperationSourceInterpreter : SourceInterpreter() {
@@ -708,30 +717,19 @@ internal class IgnoringCopyOperationSourceInterpreter : SourceInterpreter() {
 }
 
 /**
- * Let's call an instruction safe if its execution is always invisible: stack modifications, branching, variable insns (invisible in debug)
+ * For each instruction `insn` calculate all the reachable ARETURN instruction indices
  *
- * For some instruction `insn` define the result as following:
- * - if there is a path leading to the non-safe instruction then result is `null`
- * - Otherwise result contains all the reachable ARETURN indices
- *
- * @return indices of safely reachable returns for each instruction in the method node
+ * @return indices of reachable returns for each instruction in the method node
  */
-private fun findSafelyReachableReturns(methodNode: MethodNode): Array<Set<Int>?> {
+private fun findReachableReturns(methodNode: MethodNode): Array<Set<Int>> {
     val controlFlowGraph = ControlFlowGraph.build(methodNode)
 
     val insns = methodNode.instructions
-    val reachableReturnsIndices = Array<Set<Int>?>(insns.size()) init@{ index ->
+    val reachableReturnsIndices = Array(insns.size()) { index ->
         val insn = insns[index]
 
-        if (insn.opcode == Opcodes.ARETURN) {
-            return@init setOf(index)
-        }
-
-        if (!insn.isMeaningful || insn.opcode in SAFE_OPCODES || insn.isInvisibleInDebugVarInsn(methodNode) ||
-            isInlineMarker(insn)) {
-            setOf()
-        }
-        else null
+        if (insn.opcode == Opcodes.ARETURN) setOf(index)
+        else setOf()
     }
 
     var changed: Boolean
@@ -740,32 +738,20 @@ private fun findSafelyReachableReturns(methodNode: MethodNode): Array<Set<Int>?>
         for (index in 0 until insns.size()) {
             if (insns[index].opcode == Opcodes.ARETURN) continue
 
-            @Suppress("RemoveExplicitTypeArguments")
-            val newResult =
-                    controlFlowGraph
-                            .getSuccessorsIndices(index).plus(index)
-                            .map(reachableReturnsIndices::get)
-                            .fold<Set<Int>?, Set<Int>?>(mutableSetOf<Int>()) { acc, successorsResult ->
-                                if (acc != null && successorsResult != null) acc + successorsResult else null
-                            }
+            val newResult = controlFlowGraph
+                    .getSuccessorsIndices(index).plus(index)
+                    .flatMapTo(HashSet()) {
+                        reachableReturnsIndices[it]
+                    }
 
             if (newResult != reachableReturnsIndices[index]) {
                 reachableReturnsIndices[index] = newResult
                 changed = true
             }
         }
-    } while (changed)
+    }
+    while (changed)
 
     return reachableReturnsIndices
 }
 
-private fun AbstractInsnNode?.isInvisibleInDebugVarInsn(methodNode: MethodNode): Boolean {
-    val insns = methodNode.instructions
-    val index = insns.indexOf(this)
-    return (this is VarInsnNode && methodNode.localVariables.none {
-        it.index == `var` && index in it.start.let(insns::indexOf)..it.end.let(insns::indexOf)
-    })
-}
-
-private val SAFE_OPCODES =
-        ((Opcodes.DUP..Opcodes.DUP2_X2) + Opcodes.NOP + Opcodes.POP + Opcodes.POP2 + (Opcodes.IFEQ..Opcodes.GOTO)).toSet()
