@@ -32,10 +32,7 @@ import org.jetbrains.kotlin.idea.scratch.ScratchFile
 import org.jetbrains.kotlin.idea.scratch.actions.ClearScratchAction
 import org.jetbrains.kotlin.idea.scratch.actions.RunScratchAction
 import org.jetbrains.kotlin.psi.UserDataProperty
-import javax.swing.JComponent
-import javax.swing.JLabel
-import javax.swing.JPanel
-import javax.swing.JSeparator
+import javax.swing.*
 
 var FileEditor.scratchTopPanel: ScratchTopPanel? by UserDataProperty<FileEditor, ScratchTopPanel>(Key.create("scratch.panel"))
 val ScratchFile.scratchTopPanel: ScratchTopPanel?
@@ -47,6 +44,7 @@ val ScratchFile.scratchTopPanel: ScratchTopPanel?
 
 class ScratchTopPanel(project: Project) : JPanel(HorizontalLayout(5)) {
     private val moduleChooser: ModulesComboBox
+    val progressBar: JProgressBar
 
     init {
         add(createActionsToolbar())
@@ -55,6 +53,9 @@ class ScratchTopPanel(project: Project) : JPanel(HorizontalLayout(5)) {
         moduleChooser = createModuleChooser(project)
         add(moduleChooser)
         add(Spacer())
+        progressBar = JProgressBar()
+        progressBar.isVisible = false
+        add(progressBar)
     }
 
     fun getModule(): Module? = moduleChooser.selectedModule

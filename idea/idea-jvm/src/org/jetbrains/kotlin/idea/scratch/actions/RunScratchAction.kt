@@ -25,6 +25,7 @@ import com.intellij.psi.PsiDocumentManager
 import org.jetbrains.kotlin.idea.KotlinBundle
 import org.jetbrains.kotlin.idea.scratch.ScratchFile
 import org.jetbrains.kotlin.idea.scratch.ScratchFileLanguageProvider
+import org.jetbrains.kotlin.idea.scratch.output.ProgressBarOutputHandler
 import org.jetbrains.kotlin.idea.scratch.output.ScratchOutputHandlerAdapter
 
 class RunScratchAction : AnAction(
@@ -63,6 +64,7 @@ class RunScratchAction : AnAction(
 
             e.presentation.isEnabled = false
 
+            executor.addOutputHandler(ProgressBarOutputHandler)
             executor.addOutputHandler(handler)
 
             executor.addOutputHandler(object : ScratchOutputHandlerAdapter() {
