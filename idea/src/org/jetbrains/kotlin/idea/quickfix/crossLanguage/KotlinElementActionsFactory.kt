@@ -84,8 +84,8 @@ class KotlinElementActionsFactory : JvmElementActionsFactory() {
         override fun resolve(): PsiElement? = psiParam
     }
 
-    private class ModifierBuilder(project: Project) {
-        private val psiFactory = KtPsiFactory(project)
+    private class ModifierBuilder(private val targetContainer: KtElement) {
+        private val psiFactory = KtPsiFactory(targetContainer.project)
 
         val modifierList = psiFactory.createEmptyModifierList()
 
@@ -96,7 +96,11 @@ class KotlinElementActionsFactory : JvmElementActionsFactory() {
             }
 
             when (this) {
-                JvmModifier.STATIC -> addAnnotation(JVM_STATIC_ANNOTATION_FQ_NAME)
+                JvmModifier.STATIC -> {
+                    if (targetContainer is KtClassOrObject) {
+                        addAnnotation(JVM_STATIC_ANNOTATION_FQ_NAME)
+                    }
+                }
                 JvmModifier.ABSTRACT -> modifierList.appendModifier(KtTokens.ABSTRACT_KEYWORD)
                 JvmModifier.FINAL -> modifierList.appendModifier(KtTokens.FINAL_KEYWORD)
                 else -> return false
@@ -258,9 +262,7 @@ class KotlinElementActionsFactory : JvmElementActionsFactory() {
 
         if (request.typeParameters.isNotEmpty()) return emptyList()
 
-        val project = targetKtClass.project
-
-        val modifierBuilder = ModifierBuilder(project).apply { addJvmModifiers(request.modifiers) }
+        val modifierBuilder = ModifierBuilder(targetKtClass).apply { addJvmModifiers(request.modifiers) }
         if (!modifierBuilder.isValid) return emptyList()
 
         val resolutionFacade = targetKtClass.getResolutionFacade()
@@ -286,6 +288,7 @@ class KotlinElementActionsFactory : JvmElementActionsFactory() {
         val changePrimaryConstructorAction = run {
             val primaryConstructor = targetKtClass.primaryConstructor ?: return@run null
             val lightMethod = primaryConstructor.toLightMethods().firstOrNull() ?: return@run null
+            val project = targetKtClass.project
             val fakeParametersExpressions = fakeParametersExpressions(request.parameters, project) ?: return@run null
             QuickFixFactory.getInstance()
                     .createChangeMethodSignatureFromUsageFix(
@@ -304,7 +307,7 @@ class KotlinElementActionsFactory : JvmElementActionsFactory() {
     override fun createAddPropertyActions(targetClass: JvmClass, request: MemberRequest.Property): List<IntentionAction> {
         val targetContainer = targetClass.toKtClassOrFile() ?: return emptyList()
 
-        val modifierBuilder = ModifierBuilder(targetContainer.project).apply { addJvmModifier(request.visibilityModifier) }
+        val modifierBuilder = ModifierBuilder(targetContainer).apply { addJvmModifier(request.visibilityModifier) }
         if (!modifierBuilder.isValid) return emptyList()
 
         val resolutionFacade = targetContainer.getResolutionFacade()
@@ -331,7 +334,7 @@ class KotlinElementActionsFactory : JvmElementActionsFactory() {
     override fun createAddFieldActions(targetClass: JvmClass, request: CreateFieldRequest): List<IntentionAction> {
         val targetContainer = targetClass.toKtClassOrFile() ?: return emptyList()
 
-        val modifierBuilder = ModifierBuilder(targetContainer.project).apply {
+        val modifierBuilder = ModifierBuilder(targetContainer).apply {
             addJvmModifiers(request.modifiers)
             addAnnotation(JVM_FIELD_ANNOTATION_FQ_NAME)
         }
@@ -362,7 +365,7 @@ class KotlinElementActionsFactory : JvmElementActionsFactory() {
     override fun createAddMethodActions(targetClass: JvmClass, request: CreateMethodRequest): List<IntentionAction> {
         val targetContainer = targetClass.toKtClassOrFile() ?: return emptyList()
 
-        val modifierBuilder = ModifierBuilder(targetContainer.project).apply { addJvmModifiers(request.modifiers) }
+        val modifierBuilder = ModifierBuilder(targetContainer).apply { addJvmModifiers(request.modifiers) }
         if (!modifierBuilder.isValid) return emptyList()
 
         val resolutionFacade = targetContainer.getResolutionFacade()

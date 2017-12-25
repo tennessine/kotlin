@@ -1355,8 +1355,8 @@ public class QuickFixMultiFileTestGenerated extends AbstractQuickFixMultiFileTes
             @TestDataPath("$PROJECT_ROOT")
             @RunWith(JUnit3RunnerWithInners.class)
             public static class FromJava extends AbstractQuickFixMultiFileTest {
-                public void testAllFilesPresentInDelegateAccessors() throws Exception {
-                    KotlinTestUtils.assertAllTestsPresentByMetadata(this.getClass(), new File("idea/testData/quickfix/createFromUsage/createFunction/fromJava"), Pattern.compile("^([\\w\\-_]+)\\.kt$"), TargetBackend.ANY, true);
+                public void testAllFilesPresentInFromJava() throws Exception {
+                    KotlinTestUtils.assertAllTestsPresentByMetadata(this.getClass(), new File("idea/testData/quickfix/createFromUsage/createFunction/fromJava"), Pattern.compile("^(\\w+)\\.((before\\.Main\\.\\w+)|(test))$"), TargetBackend.ANY, true);
                 }
 
                 @TestMetadata("classMember.before.Main.java")
@@ -1546,6 +1546,33 @@ public class QuickFixMultiFileTestGenerated extends AbstractQuickFixMultiFileTes
                 public void testVarOnJavaType() throws Exception {
                     String fileName = KotlinTestUtils.navigationMetadata("idea/testData/quickfix/createFromUsage/createVariable/property/varOnJavaType.before.Main.kt");
                     doTestWithExtraFile(fileName);
+                }
+
+                @TestMetadata("idea/testData/quickfix/createFromUsage/createVariable/property/fieldFromJava")
+                @TestDataPath("$PROJECT_ROOT")
+                @RunWith(JUnit3RunnerWithInners.class)
+                public static class FieldFromJava extends AbstractQuickFixMultiFileTest {
+                    public void testAllFilesPresentInFieldFromJava() throws Exception {
+                        KotlinTestUtils.assertAllTestsPresentByMetadata(this.getClass(), new File("idea/testData/quickfix/createFromUsage/createVariable/property/fieldFromJava"), Pattern.compile("^(\\w+)\\.((before\\.Main\\.\\w+)|(test))$"), TargetBackend.ANY, true);
+                    }
+
+                    @TestMetadata("classMemberVal.before.Main.java")
+                    public void testClassMemberVal() throws Exception {
+                        String fileName = KotlinTestUtils.navigationMetadata("idea/testData/quickfix/createFromUsage/createVariable/property/fieldFromJava/classMemberVal.before.Main.java");
+                        doTestWithExtraFile(fileName);
+                    }
+
+                    @TestMetadata("companionMemberVal.before.Main.java")
+                    public void testCompanionMemberVal() throws Exception {
+                        String fileName = KotlinTestUtils.navigationMetadata("idea/testData/quickfix/createFromUsage/createVariable/property/fieldFromJava/companionMemberVal.before.Main.java");
+                        doTestWithExtraFile(fileName);
+                    }
+
+                    @TestMetadata("topLevelVal.before.Main.java")
+                    public void testTopLevelVal() throws Exception {
+                        String fileName = KotlinTestUtils.navigationMetadata("idea/testData/quickfix/createFromUsage/createVariable/property/fieldFromJava/topLevelVal.before.Main.java");
+                        doTestWithExtraFile(fileName);
+                    }
                 }
             }
         }
