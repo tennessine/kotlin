@@ -4138,6 +4138,12 @@ public class DiagnosticsTestGenerated extends AbstractDiagnosticsTest {
                 doTest(fileName);
             }
 
+            @TestMetadata("parameterCallWithUnitType.kt")
+            public void testParameterCallWithUnitType() throws Exception {
+                String fileName = KotlinTestUtils.navigationMetadata("compiler/testData/diagnostics/tests/controlFlowAnalysis/parameterCallWithUnitType.kt");
+                doTest(fileName);
+            }
+
             @TestMetadata("privateSetter.kt")
             public void testPrivateSetter() throws Exception {
                 String fileName = KotlinTestUtils.navigationMetadata("compiler/testData/diagnostics/tests/controlFlowAnalysis/privateSetter.kt");

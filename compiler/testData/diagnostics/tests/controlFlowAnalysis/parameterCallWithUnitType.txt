@@ -1,0 +1,17 @@
+package
+
+public object F : G {
+    private constructor F()
+    public open override /*1*/ /*fake_override*/ fun equals(/*0*/ other: kotlin.Any?): kotlin.Boolean
+    public open override /*1*/ /*fake_override*/ fun hashCode(): kotlin.Int
+    public open override /*1*/ /*fake_override*/ fun toString(): kotlin.String
+    public final fun x(/*0*/ f: G.() -> kotlin.Unit): kotlin.Unit
+    public final fun y(/*0*/ f: G.() -> kotlin.Unit): kotlin.Unit
+    public final fun z(/*0*/ f: (G) -> kotlin.Unit): kotlin.Unit
+}
+
+public interface G {
+    public open override /*1*/ /*fake_override*/ fun equals(/*0*/ other: kotlin.Any?): kotlin.Boolean
+    public open override /*1*/ /*fake_override*/ fun hashCode(): kotlin.Int
+    public open override /*1*/ /*fake_override*/ fun toString(): kotlin.String
+}

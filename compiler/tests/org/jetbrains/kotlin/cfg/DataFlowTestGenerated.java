@@ -145,6 +145,12 @@ public class DataFlowTestGenerated extends AbstractDataFlowTest {
                 doTest(fileName);
             }
 
+            @TestMetadata("parameterCallWithUnitType.kt")
+            public void testParameterCallWithUnitType() throws Exception {
+                String fileName = KotlinTestUtils.navigationMetadata("compiler/testData/cfg-variables/bugs/parameterCallWithUnitType.kt");
+                doTest(fileName);
+            }
+
             @TestMetadata("referenceToPropertyInitializer.kt")
             public void testReferenceToPropertyInitializer() throws Exception {
                 String fileName = KotlinTestUtils.navigationMetadata("compiler/testData/cfg-variables/bugs/referenceToPropertyInitializer.kt");

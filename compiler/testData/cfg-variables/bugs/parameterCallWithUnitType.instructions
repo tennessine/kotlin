@@ -1,0 +1,103 @@
+== F ==
+object F {
+    fun x(f: F.() -> Unit) {
+        f()
+    }
+    fun y(f: F.() -> Unit) {
+        this.f()
+    }
+}
+---------------------
+L0:
+  1 <START>    INIT: in: {} out: {}
+L1:
+    <END>
+error:
+    <ERROR>
+sink:
+    <SINK>                             USE: in: {} out: {}
+=====================
+== x ==
+fun x(f: F.() -> Unit) {
+        f()
+    }
+---------------------
+L0:
+  1 <START>                                             INIT: in: {} out: {}
+    v(f: F.() -> Unit)                                  INIT: in: {} out: {}
+    magic[FAKE_INITIALIZER](f: F.() -> Unit) -> <v0>    INIT: in: {} out: {}
+    w(f|<v0>)                                           INIT: in: {} out: {}
+  2 mark({ f() })                                       INIT: in: {} out: {}
+    r(f) -> <v1>
+    r(f, F) -> <v2>
+    magic[IMPLICIT_RECEIVER](f()) -> <v3>
+    mark(f())
+    call(f(), invoke|<v1>, <v3>) -> <v4>
+L1:
+  1 <END>
+error:
+    <ERROR>
+sink:
+    <SINK>                                                                      USE: in: {} out: {}
+=====================
+== y ==
+fun y(f: F.() -> Unit) {
+        this.f()
+    }
+---------------------
+L0:
+  1 <START>                                             INIT: in: {} out: {}
+    v(f: F.() -> Unit)                                  INIT: in: {} out: {}
+    magic[FAKE_INITIALIZER](f: F.() -> Unit) -> <v0>    INIT: in: {} out: {}
+    w(f|<v0>)                                           INIT: in: {} out: {}
+  2 mark({ this.f() })                                  INIT: in: {} out: {}
+    mark(this.f())
+    r(f) -> <v1>
+    r(this, <this>) -> <v2>
+    mark(f())
+    call(f(), invoke|<v1>, <v2>) -> <v3>
+L1:
+  1 <END>
+error:
+    <ERROR>
+sink:
+    <SINK>                                                                      USE: in: {} out: {}
+=====================
+== G ==
+class G {
+    fun z(g: G.() -> Unit) {
+        g()
+    }
+}
+---------------------
+L0:
+  1 <START>    INIT: in: {} out: {}
+L1:
+    <END>
+error:
+    <ERROR>
+sink:
+    <SINK>                             USE: in: {} out: {}
+=====================
+== z ==
+fun z(g: G.() -> Unit) {
+        g()
+    }
+---------------------
+L0:
+  1 <START>                                             INIT: in: {} out: {}
+    v(g: G.() -> Unit)                                  INIT: in: {} out: {}
+    magic[FAKE_INITIALIZER](g: G.() -> Unit) -> <v0>    INIT: in: {} out: {}
+    w(g|<v0>)                                           INIT: in: {} out: {}
+  2 mark({ g() })                                       INIT: in: {} out: {}
+    r(g) -> <v1>
+    magic[IMPLICIT_RECEIVER](g()) -> <v2>
+    mark(g())
+    call(g(), invoke|<v1>, <v2>) -> <v3>
+L1:
+  1 <END>
+error:
+    <ERROR>
+sink:
+    <SINK>                                                                      USE: in: {} out: {}
+=====================

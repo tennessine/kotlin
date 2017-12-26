@@ -1,0 +1,54 @@
+== F ==
+object F {
+    fun x(f: F.() -> Unit) {
+        f()
+    }
+    fun y(f: F.() -> Unit) {
+        this.f()
+    }
+}
+---------------------
+=====================
+== x ==
+fun x(f: F.() -> Unit) {
+        f()
+    }
+---------------------
+          <v0>: {<: F.() -> Unit}   NEW: magic[FAKE_INITIALIZER](f: F.() -> Unit) -> <v0>
+          <v3>: F                   NEW: magic[IMPLICIT_RECEIVER](f()) -> <v3>
+f         <v2>: *                   NEW: r(f, F) -> <v2>
+f()       <v4>: *                   NEW: call(f(), invoke|<v1>, <v3>) -> <v4>
+{ f() }   <v4>: *                   COPY
+=====================
+== y ==
+fun y(f: F.() -> Unit) {
+        this.f()
+    }
+---------------------
+               <v0>: {<: F.() -> Unit}   NEW: magic[FAKE_INITIALIZER](f: F.() -> Unit) -> <v0>
+this           <v2>: F                   COPY
+this           <v2>: F                   NEW: r(this, <this>) -> <v2>
+f              <v1>: {<: (F) -> Unit}    NEW: r(f) -> <v1>
+f()            <v3>: *                   NEW: call(f(), invoke|<v1>, <v2>) -> <v3>
+this.f()       <v3>: *                   COPY
+{ this.f() }   <v3>: *                   COPY
+=====================
+== G ==
+class G {
+    fun z(g: G.() -> Unit) {
+        g()
+    }
+}
+---------------------
+=====================
+== z ==
+fun z(g: G.() -> Unit) {
+        g()
+    }
+---------------------
+          <v0>: {<: G.() -> Unit}   NEW: magic[FAKE_INITIALIZER](g: G.() -> Unit) -> <v0>
+          <v2>: G                   NEW: magic[IMPLICIT_RECEIVER](g()) -> <v2>
+g         <v1>: {<: (G) -> Unit}    NEW: r(g) -> <v1>
+g()       <v3>: *                   NEW: call(g(), invoke|<v1>, <v2>) -> <v3>
+{ g() }   <v3>: *                   COPY
+=====================
