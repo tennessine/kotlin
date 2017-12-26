@@ -78,7 +78,7 @@ class KotlinPositionManager(private val myDebugProcess: DebugProcess) : MultiReq
                 }
             }
 
-    private val scopes: List<GlobalSearchScope> = listOf(
+    private val sourceSearchScopes: List<GlobalSearchScope> = listOf(
             myDebugProcess.searchScope,
             allKotlinFilesScope
     )
@@ -117,7 +117,7 @@ class KotlinPositionManager(private val myDebugProcess: DebugProcess) : MultiReq
                     val javaClassName = JvmClassName.byInternalName(defaultInternalName(location))
                     val project = myDebugProcess.project
 
-                    val defaultPsiFile = DebuggerUtils.findSourceFileForClass(project, scopes, javaClassName, javaSourceFileName)
+                    val defaultPsiFile = DebuggerUtils.findSourceFileForClass(project, sourceSearchScopes, javaClassName, javaSourceFileName)
                     if (defaultPsiFile != null) {
                         return SourcePosition.createFromLine(defaultPsiFile, 0)
                     }
@@ -225,7 +225,7 @@ class KotlinPositionManager(private val myDebugProcess: DebugProcess) : MultiReq
                 continue
             }
 
-            val internalClassNames = DebuggerClassNameProvider(myDebugProcess, scopes, alwaysReturnLambdaParentClass = false)
+            val internalClassNames = DebuggerClassNameProvider(myDebugProcess, alwaysReturnLambdaParentClass = false)
                     .getOuterClassNamesForElement(literal.firstChild)
                     .classNames
 
@@ -274,7 +274,7 @@ class KotlinPositionManager(private val myDebugProcess: DebugProcess) : MultiReq
 
         val project = myDebugProcess.project
 
-        return DebuggerUtils.findSourceFileForClass(project, scopes, className, sourceName)
+        return DebuggerUtils.findSourceFileForClass(project, sourceSearchScopes, className, sourceName)
     }
 
     private fun defaultInternalName(location: Location): String {
@@ -288,7 +288,7 @@ class KotlinPositionManager(private val myDebugProcess: DebugProcess) : MultiReq
         val psiFile = sourcePosition.file
         if (psiFile is KtFile) {
             if (!ProjectRootsUtil.isInProjectOrLibSource(psiFile)) return emptyList()
-            return DebuggerClassNameProvider(myDebugProcess, scopes).getClassesForPosition(sourcePosition)
+            return DebuggerClassNameProvider(myDebugProcess).getClassesForPosition(sourcePosition)
         }
 
         if (psiFile is ClsFileImpl) {
@@ -303,7 +303,7 @@ class KotlinPositionManager(private val myDebugProcess: DebugProcess) : MultiReq
     }
 
     fun originalClassNamesForPosition(position: SourcePosition): List<String> {
-        return DebuggerClassNameProvider(myDebugProcess, scopes, findInlineUseSites = false).getOuterClassNamesForPosition(position)
+        return DebuggerClassNameProvider(myDebugProcess, findInlineUseSites = false).getOuterClassNamesForPosition(position)
     }
 
     override fun locationsOfLine(type: ReferenceType, position: SourcePosition): List<Location> {
@@ -342,7 +342,7 @@ class KotlinPositionManager(private val myDebugProcess: DebugProcess) : MultiReq
             throw NoDataException.INSTANCE
         }
 
-        val classNames = DebuggerClassNameProvider(myDebugProcess, scopes).getOuterClassNamesForPosition(position)
+        val classNames = DebuggerClassNameProvider(myDebugProcess).getOuterClassNamesForPosition(position)
         return classNames.flatMap { name ->
             listOfNotNull(
                     myDebugProcess.requestsManager.createClassPrepareRequest(requestor, name),
