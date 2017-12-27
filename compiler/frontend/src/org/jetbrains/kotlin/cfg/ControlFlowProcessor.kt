@@ -1600,7 +1600,7 @@ class ControlFlowProcessor(private val trace: BindingTrace) {
                             val fakeDescriptor = getFakeDescriptorForObject(declaration)
                             val calleeExpression = callElement.calleeExpression
                             if (fakeDescriptor != null && calleeExpression != null) {
-                                builder.read(calleeExpression, AccessTarget.Declaration(fakeDescriptor), emptyMap())
+                                builder.read(calleeExpression, AccessTarget.Declaration(fakeDescriptor), emptyMap(), fake = true)
                             }
                         }
                     }

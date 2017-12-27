@@ -66,16 +66,17 @@ class ReadValueInstruction private constructor(
             blockScope: BlockScope,
             target: AccessTarget,
             receiverValues: Map<PseudoValue, ReceiverValue>,
-            factory: PseudoValueFactory
+            factory: PseudoValueFactory,
+            noOutputUsage: Boolean
     ): this(element, blockScope, target, receiverValues, null) {
-        _outputValue = factory.newValue(element, this)
+        _outputValue = if (noOutputUsage) null else factory.newValue(element, this)
     }
 
     override val inputValues: List<PseudoValue>
         get() = receiverValues.keys.toList()
 
-    override val outputValue: PseudoValue
-        get() = _outputValue!!
+    override val outputValue
+        get() = _outputValue
 
     override fun accept(visitor: InstructionVisitor) {
         visitor.visitReadValue(this)
@@ -93,7 +94,7 @@ class ReadValueInstruction private constructor(
 
         val elementText = render(element)
         val description = if (targetName != null && targetName != elementText) "$elementText, $targetName" else elementText
-        return "r($description$inVal) -> $outputValue"
+        return "r($description$inVal)" + (outputValue?.let { " -> $it" } ?: "")
     }
 
     override fun createCopy(): InstructionImpl =

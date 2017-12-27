@@ -15,10 +15,10 @@ fun x(f: F.() -> Unit) {
     }
 ---------------------
           <v0>: {<: F.() -> Unit}   NEW: magic[FAKE_INITIALIZER](f: F.() -> Unit) -> <v0>
-          <v3>: F                   NEW: magic[IMPLICIT_RECEIVER](f()) -> <v3>
-f         <v2>: *                   NEW: r(f, F) -> <v2>
-f()       <v4>: *                   NEW: call(f(), invoke|<v1>, <v3>) -> <v4>
-{ f() }   <v4>: *                   COPY
+          <v2>: F                   NEW: magic[IMPLICIT_RECEIVER](f()) -> <v2>
+f         <v1>: {<: (F) -> Unit}    NEW: r(f) -> <v1>
+f()       <v3>: *                   NEW: call(f(), invoke|<v1>, <v2>) -> <v3>
+{ f() }   <v3>: *                   COPY
 =====================
 == y ==
 fun y(f: F.() -> Unit) {

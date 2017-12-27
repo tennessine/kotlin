@@ -29,10 +29,10 @@ L0:
     w(f|<v0>)                                           INIT: in: {} out: {}
   2 mark({ f() })                                       INIT: in: {} out: {}
     r(f) -> <v1>
-    r(f, F) -> <v2>
-    magic[IMPLICIT_RECEIVER](f()) -> <v3>
+    r(f, F)
+    magic[IMPLICIT_RECEIVER](f()) -> <v2>
     mark(f())
-    call(f(), invoke|<v1>, <v3>) -> <v4>
+    call(f(), invoke|<v1>, <v2>) -> <v3>
 L1:
   1 <END>
 error:
