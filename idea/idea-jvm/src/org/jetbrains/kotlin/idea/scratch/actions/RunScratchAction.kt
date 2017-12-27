@@ -23,7 +23,9 @@ import com.intellij.openapi.compiler.CompilerManager
 import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.psi.PsiDocumentManager
 import org.jetbrains.kotlin.idea.KotlinBundle
+import org.jetbrains.kotlin.idea.scratch.ScratchFile
 import org.jetbrains.kotlin.idea.scratch.ScratchFileLanguageProvider
+import org.jetbrains.kotlin.idea.scratch.output.ScratchOutputHandlerAdapter
 
 class RunScratchAction : AnAction(
         KotlinBundle.message("scratch.run.button"),
@@ -42,18 +44,32 @@ class RunScratchAction : AnAction(
 
         val scratchFile = provider.createFile(psiFile) ?: return
 
+        val handler = provider.getOutputHandler()
+
         val module = scratchFile.module
         if (module == null) {
+            handler.error(scratchFile, "Module should be selected")
+            handler.onFinish(scratchFile)
             return
         }
 
         val runnable = r@ {
             val executor = provider.createReplExecutor(scratchFile)
             if (executor == null) {
+                handler.error(scratchFile, "Couldn't run file using REPL")
+                handler.onFinish(scratchFile)
                 return@r
             }
 
             e.presentation.isEnabled = false
+
+            executor.addOutputHandler(handler)
+
+            executor.addOutputHandler(object : ScratchOutputHandlerAdapter() {
+                override fun onFinish(file: ScratchFile) {
+                    e.presentation.isEnabled = true
+                }
+            })
 
             executor.execute()
         }
