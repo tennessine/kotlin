@@ -27,6 +27,7 @@ import org.jetbrains.kotlin.idea.scratch.ScratchFile
 import org.jetbrains.kotlin.idea.scratch.ScratchFileLanguageProvider
 import org.jetbrains.kotlin.idea.scratch.output.ProgressBarOutputHandler
 import org.jetbrains.kotlin.idea.scratch.output.ScratchOutputHandlerAdapter
+import org.jetbrains.kotlin.idea.scratch.ui.scratchTopPanel
 
 class RunScratchAction : AnAction(
         KotlinBundle.message("scratch.run.button"),
@@ -39,11 +40,11 @@ class RunScratchAction : AnAction(
         val psiFile = PsiDocumentManager.getInstance(project).getPsiFile(editor.document) ?: return
 
         val isMakeBeforeRun = false // todo use property from panel
-        val isRepl = true //todo use property from panel
 
         val provider = ScratchFileLanguageProvider.get(psiFile.language) ?: return
 
         val scratchFile = provider.createFile(psiFile) ?: return
+        val isRepl = scratchFile.scratchTopPanel?.isRepl() ?: return
 
         val handler = provider.getOutputHandler()
 
@@ -55,16 +56,19 @@ class RunScratchAction : AnAction(
         }
 
         val runnable = r@ {
-            val executor = provider.createReplExecutor(scratchFile)
+            val executor = if (isRepl) provider.createReplExecutor(scratchFile) else provider.createCompilingExecutor(scratchFile)
             if (executor == null) {
-                handler.error(scratchFile, "Couldn't run file using REPL")
+                handler.error(scratchFile, "Couldn't run ${scratchFile.psiFile.name}")
                 handler.onFinish(scratchFile)
                 return@r
             }
 
             e.presentation.isEnabled = false
 
-            executor.addOutputHandler(ProgressBarOutputHandler)
+            if (isRepl) {
+                executor.addOutputHandler(ProgressBarOutputHandler)
+            }
+
             executor.addOutputHandler(handler)
 
             executor.addOutputHandler(object : ScratchOutputHandlerAdapter() {

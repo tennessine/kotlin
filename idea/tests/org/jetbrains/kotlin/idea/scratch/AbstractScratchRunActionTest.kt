@@ -24,7 +24,9 @@ import com.intellij.openapi.fileEditor.FileEditorManager
 import com.intellij.openapi.fileEditor.TextEditor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.io.FileUtilRt
+import com.intellij.openapi.util.text.StringUtil
 import com.intellij.openapi.vfs.VirtualFile
+import com.intellij.psi.PsiComment
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.testFramework.FileEditorManagerTestCase
 import com.intellij.testFramework.MapDataContext
@@ -33,12 +35,24 @@ import com.intellij.util.ui.UIUtil
 import org.jetbrains.kotlin.idea.KotlinLanguage
 import org.jetbrains.kotlin.idea.scratch.actions.RunScratchAction
 import org.jetbrains.kotlin.idea.scratch.output.InlayScratchOutputHandler
+import org.jetbrains.kotlin.idea.scratch.ui.scratchTopPanel
+import org.jetbrains.kotlin.idea.test.KotlinWithJdkAndRuntimeLightProjectDescriptor
+import org.jetbrains.kotlin.psi.KtPsiFactory
+import org.jetbrains.kotlin.psi.KtTreeVisitorVoid
 import org.jetbrains.kotlin.test.KotlinTestUtils
 import org.junit.Assert
 import java.io.File
 
 abstract class AbstractScratchRunActionTest : FileEditorManagerTestCase() {
-    fun doTest(fileName: String) {
+    fun doReplTest(fileName: String) {
+        doTest(fileName, true)
+    }
+
+    fun doCompilingTest(fileName: String) {
+        doTest(fileName, false)
+    }
+
+    fun doTest(fileName: String, isRepl: Boolean) {
         val sourceFile = File("$testDataPath/$fileName")
         val fileText = FileUtilRt.loadFile(sourceFile)
 
@@ -50,6 +64,8 @@ abstract class AbstractScratchRunActionTest : FileEditorManagerTestCase() {
                 ScratchFileService.Option.create_new_always) ?: error("Couldn't create scratch file ${sourceFile.path}")
 
         myFixture.openFileInEditor(scratchFile)
+
+        ScratchFileLanguageProvider.createFile(myFixture.file)?.scratchTopPanel?.setReplMode(isRepl)
 
         val event = getActionEvent(myFixture.file.virtualFile, RunScratchAction())
         launchAction(event, RunScratchAction())
@@ -78,7 +94,7 @@ abstract class AbstractScratchRunActionTest : FileEditorManagerTestCase() {
                     }
         }
 
-        val expectedFileName = fileName.replace(".kts", ".repl.after")
+        val expectedFileName = if (isRepl) fileName.replace(".kts", ".repl.after") else fileName.replace(".kts", ".comp.after")
         val expectedFile = File("$testDataPath/$expectedFileName")
         KotlinTestUtils.assertEqualsToFile(expectedFile, actualOutput.toString())
     }
@@ -97,4 +113,6 @@ abstract class AbstractScratchRunActionTest : FileEditorManagerTestCase() {
     }
 
     override fun getTestDataPath() = KotlinTestUtils.getHomeDirectory()
+
+    override fun getProjectDescriptor() = KotlinWithJdkAndRuntimeLightProjectDescriptor.INSTANCE_FULL_JDK
 }

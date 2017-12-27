@@ -28,6 +28,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Key
 import com.intellij.ui.components.panels.HorizontalLayout
 import com.intellij.uiDesigner.core.Spacer
+import org.jetbrains.annotations.TestOnly
 import org.jetbrains.kotlin.idea.scratch.ScratchFile
 import org.jetbrains.kotlin.idea.scratch.actions.ClearScratchAction
 import org.jetbrains.kotlin.idea.scratch.actions.RunScratchAction
@@ -44,10 +45,14 @@ val ScratchFile.scratchTopPanel: ScratchTopPanel?
 
 class ScratchTopPanel(project: Project) : JPanel(HorizontalLayout(5)) {
     private val moduleChooser: ModulesComboBox
+    private val isReplCheckbox: JCheckBox
     val progressBar: JProgressBar
 
     init {
         add(createActionsToolbar())
+        add(JSeparator())
+        isReplCheckbox = JCheckBox("Use Repl", false)
+        add(isReplCheckbox)
         add(JSeparator())
         add(JLabel("Use classpath of module:  "))
         moduleChooser = createModuleChooser(project)
@@ -64,6 +69,13 @@ class ScratchTopPanel(project: Project) : JPanel(HorizontalLayout(5)) {
         moduleChooser.addActionListener {
             moduleChooser.selectedModule?.let { f(it) }
         }
+    }
+
+    fun isRepl() = isReplCheckbox.isEnabled
+
+    @TestOnly
+    fun setReplMode(isEnabled: Boolean) {
+        isReplCheckbox.isEnabled = isEnabled
     }
 
     private fun createActionsToolbar(): JComponent {
