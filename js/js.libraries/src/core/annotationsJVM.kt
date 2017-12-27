@@ -48,7 +48,7 @@ internal annotation class JvmField
 // we prohibit marking annotations this way.
 // TODO: Another workaround is required to remove these annotations from kotlin.js
 
-@Target(AnnotationTarget.PROPERTY, AnnotationTarget.FIELD)
+@Target(AnnotationTarget.FIELD)
 @Retention(AnnotationRetention.SOURCE)
 public annotation class Volatile
 

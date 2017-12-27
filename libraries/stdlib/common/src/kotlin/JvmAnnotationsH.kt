@@ -26,5 +26,5 @@ expect annotation class JvmMultifileClass()
 
 expect annotation class JvmField()
 
-@Target(PROPERTY, FIELD)
+@Target(FIELD)
 expect annotation class Volatile()
