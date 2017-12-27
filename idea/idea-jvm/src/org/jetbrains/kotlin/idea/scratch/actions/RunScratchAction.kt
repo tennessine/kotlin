@@ -42,17 +42,20 @@ class RunScratchAction : AnAction(
 
         val scratchFile = provider.createFile(psiFile) ?: return
 
-        val handler = provider.getOutputHandler()
-
         val module = scratchFile.module
         if (module == null) {
-            handler.error(scratchFile, "Module should be selected")
-            handler.onFinish(scratchFile)
             return
         }
 
         val runnable = r@ {
-            // todo
+            val executor = provider.createReplExecutor(scratchFile)
+            if (executor == null) {
+                return@r
+            }
+
+            e.presentation.isEnabled = false
+
+            executor.execute()
         }
 
         if (isMakeBeforeRun) {
