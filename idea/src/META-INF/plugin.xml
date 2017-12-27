@@ -52,6 +52,12 @@
       <interface-class>org.jetbrains.kotlin.idea.completion.CompletionBindingContextProvider</interface-class>
       <implementation-class>org.jetbrains.kotlin.idea.completion.CompletionBindingContextProvider</implementation-class>
     </component>
+    <component>
+      <implementation-class>org.jetbrains.kotlin.idea.scratch.ui.ScratchFileHook</implementation-class>
+    </component>
+    <component>
+      <implementation-class>org.jetbrains.kotlin.idea.scratch.ScratchFileModuleInfoProvider</implementation-class>
+    </component>
   </project-components>
 
   <application-components>
@@ -202,6 +208,14 @@
 
       <add-to-group group-id="GenerateGroup" anchor="first"/>
     </group>
+
+    <action id="Scratch.Run" class="org.jetbrains.kotlin.idea.scratch.actions.RunScratchAction"
+            text="Run Scratch File" description="Run Scratch File">
+      <!--<keyboard-shortcut first-keystroke="control enter" keymap="$default"/>-->
+    </action>
+    <action id="Scratch.Clear" class="org.jetbrains.kotlin.idea.scratch.actions.ClearScratchAction"
+            text="Clear results" description="Clear results">
+    </action>
   </actions>
 
   <extensions defaultExtensionNs="com.intellij">
