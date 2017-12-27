@@ -16,18 +16,20 @@
 
 package kotlin
 
+// TODO: remove workarounds after KT-22035 is fixed
+
 public open class Error : Throwable {
-    constructor() : super()
+    constructor() : super(message = null)
     constructor(message: String?) : super(message)
     constructor(message: String?, cause: Throwable?): super(message, cause)
-    constructor(cause: Throwable?) : super(cause)
+    constructor(cause: Throwable?) : super(null, cause)
 }
 
 public open class Exception : Throwable {
-    constructor() : super()
+    constructor() : super(message = null)
     constructor(message: String?) : super(message)
     constructor(message: String?, cause: Throwable?): super(message, cause)
-    constructor(cause: Throwable?) : super(cause)
+    constructor(cause: Throwable?) : super(null, cause)
 }
 
 public open class RuntimeException : Exception {
